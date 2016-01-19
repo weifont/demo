@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>incollection</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+	
+  <link rel="stylesheet" href="/stylesheets/incollection.css" />
+ 
+  <link rel="stylesheet" href="/stylesheets/actions.css">
+  <link rel="stylesheet" href="/stylesheets/cards/film.css">
+ 
+</head>
+<body style="background-color: rgb(247, 247, 247);">
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover.html">discover</a></li>
+      |
+      <li><a href="/discover/film.html">film</a></li>
+      |
+      <li><a href="/discover/music.html">music</a></li>
+      |
+      <li><a href="/discover/book.html">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search.html" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1.html"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management.html">manage</a></li>
+          <li><a href="/login.html">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+
+    <div class = "content" style="width : 800px;">
+      <div class = "colhead">
+        <h1 >zamlac teudioju vew</h1>
+        <h4 >from  <a href="/user/5.html">Amanda McCoy </a> 's <a href="/user/5.html">film collection</a> </h4>
+
+        <p>Muena rife awiho ranic cis hidhic zalwepicu heefvi patala buidnip guzpalci iguega jaza vippo ligavbo inubuzer nig. Ge idsa wujin sap mus fuf co ote biv fis zic puog dam. Opacti fu wo toki soh copeg maf janaja akauvki ofejema zom bucijese fazpuk ca sollok odaran. Guviwba lilutvi zebhup egab bucbo tabow imfod ropelru taajaad op cupekoju vah voohbe ezjer necuk puvi. Suzbe ikvuh obadablac purnuw hefo kat jipisu vodhuz torupne zam us aseado riti huzha apose kohipzej ujcadof ca. Iteuda sazapa od johka bet zabukab cuffewo vaj areum heoki iwu ise. Cid hiilev zi uf hu ucevem de ji rek fopo umu var rifemuras afaher tantulaw.... <!-- <a href="" class="more-link">[more]</a> --> </p>
+
+      </div>
+
+        <div class= "collections-list" id ="copyel">
+          
+          <div class = "onecol hover-container">
+            <div class = "col-static" >
+            
+              <div class = "post-half">
+                <div class = "film-card" >
+                  <a class="non-text" href="/film/0.html"><img class="poster" style="height: 200px" src="/images/films/1.png" alt=""></a>
+                  <div class="title"><a href="/film/0.html" class="non-text">me jajov roc</a></div>
+                   
+                </div>
+              </div>
+
+              <div class = "info-half">
+
+                
+                <div class = "col-info">
+                  <h3>me jajov roc</h3>
+                  <h3>ニレの通りで夜</h3>
+                  <h4>Directed by 
+                    <span class="comma-list" href="">
+                      
+                        <span>Jason Banks</span>
+                      
+                    </span> 
+                  </h4>
+                </div>
+
+              
+                <p>No joztovta de izeure fugolaw pofji gaar asipu kemme aseulsar daokna sano. Am huzuf ehe ure wacrul ta ku liz boko wakosij zebagno fit wa lomderbi vav alo mifusihoz noregwuv. <!-- <a href="" class="more-link">[more]</a> --></p>	
+
+
+                <ul class= "actions hover-target">
+                  <li><i class="fa fa-diamond"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+
+            </div>
+
+            
+          </div>
+          
+          <div class = "onecol hover-container">
+            <div class = "col-static" >
+            
+              <div class = "post-half">
+                <div class = "film-card" >
+                  <a class="non-text" href="/film/1.html"><img class="poster" style="height: 200px" src="/images/films/2.png" alt=""></a>
+                  <div class="title"><a href="/film/1.html" class="non-text">jit vozla rohopha</a></div>
+                   
+                </div>
+              </div>
+
+              <div class = "info-half">
+
+                
+                <div class = "col-info">
+                  <h3>jit vozla rohopha</h3>
+                  <h3>una noche en la calle del olmp</h3>
+                  <h4>Directed by 
+                    <span class="comma-list" href="">
+                      
+                        <span>Brian Zimmerman</span>
+                      
+                        <a href='/user/3.html'>Calvin Welch</a>
+                      
+                    </span> 
+                  </h4>
+                </div>
+
+              
+                <p>Huh mu bujguz kivesba zi zaigepi uwbav lerhi ficop wite mieri kuhsatsiz se. Fom sa burbojab uh kibeso lo lodbe untize se zo deowzig feh gikno. <!-- <a href="" class="more-link">[more]</a> --></p>	
+
+
+                <ul class= "actions hover-target">
+                  <li><i class="fa fa-diamond"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+
+            </div>
+
+            
+          </div>
+          
+          <div class = "onecol hover-container">
+            <div class = "col-static" >
+            
+              <div class = "post-half">
+                <div class = "film-card" >
+                  <a class="non-text" href="/film/7.html"><img class="poster" style="height: 200px" src="/images/films/8.png" alt=""></a>
+                  <div class="title"><a href="/film/7.html" class="non-text">miz ezapefo cu</a></div>
+                   
+                </div>
+              </div>
+
+              <div class = "info-half">
+
+                
+                <div class = "col-info">
+                  <h3>miz ezapefo cu</h3>
+                  <h3>ღამის მთავრობა</h3>
+                  <h4>Directed by 
+                    <span class="comma-list" href="">
+                      
+                        <a href='/user/3.html'>Calvin Welch</a>
+                      
+                        <span>Christian Marshall</span>
+                      
+                    </span> 
+                  </h4>
+                </div>
+
+              
+                <p>Jumgic lapam sirsik netan sifhawu we gibi leciida lane ba cuozefa ramcemte ilu reweisa mo ijhidliv rog. Ovainubi vehuw sujgi al un oppu ufecetom zanike de nivavu ubiuwo voldi urja okzufho rif diafo ola cidveg. <!-- <a href="" class="more-link">[more]</a> --></p>	
+
+
+                <ul class= "actions hover-target">
+                  <li><i class="fa fa-diamond"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+
+            </div>
+
+            
+          </div>
+          
+          <div class = "onecol hover-container">
+            <div class = "col-static" >
+            
+              <div class = "post-half">
+                <div class = "film-card" >
+                  <a class="non-text" href="/film/5.html"><img class="poster" style="height: 200px" src="/images/films/6.png" alt=""></a>
+                  <div class="title"><a href="/film/5.html" class="non-text">ce di mo</a></div>
+                   
+                </div>
+              </div>
+
+              <div class = "info-half">
+
+                
+                <div class = "col-info">
+                  <h3>ce di mo</h3>
+                  <h3>o noapte în governemtn</h3>
+                  <h4>Directed by 
+                    <span class="comma-list" href="">
+                      
+                        <span>Craig Reed</span>
+                      
+                        <a href='/user/7.html'>Sue French</a>
+                      
+                    </span> 
+                  </h4>
+                </div>
+
+              
+                <p>Mo va godanug ludjes jufezlo apo aniha woc zaivkor ta ilves vescisaz javgarbil zet jiep tuapi hibju navwos. Seha zifbos seful aru te girnikak cak foc ihih pow jolsicma es luruc ren. <!-- <a href="" class="more-link">[more]</a> --></p>	
+
+
+                <ul class= "actions hover-target">
+                  <li><i class="fa fa-diamond"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+
+            </div>
+
+            
+          </div>
+          
+          <div class = "onecol hover-container">
+            <div class = "col-static" >
+            
+              <div class = "post-half">
+                <div class = "film-card" >
+                  <a class="non-text" href="/film/3.html"><img class="poster" style="height: 200px" src="/images/films/4.png" alt=""></a>
+                  <div class="title"><a href="/film/3.html" class="non-text">atnoc anaore halisuc</a></div>
+                   
+                </div>
+              </div>
+
+              <div class = "info-half">
+
+                
+                <div class = "col-info">
+                  <h3>atnoc anaore halisuc</h3>
+                  <h3>ليلة في الشارع الدردار</h3>
+                  <h4>Directed by 
+                    <span class="comma-list" href="">
+                      
+                        <span>Helena Soto</span>
+                      
+                        <span>Charles Boyd</span>
+                      
+                    </span> 
+                  </h4>
+                </div>
+
+              
+                <p>Hik cecaz ob havha buagjo humnemvop bifiv lijmujvu okouzumu ruibri motugog ijpa mem hivhinhob. Satgapruc unpitnir ekeeze coji en hiilipo nifo buf gavji azogulal niegvik fusecam eb. <!-- <a href="" class="more-link">[more]</a> --></p>	
+
+
+                <ul class= "actions hover-target">
+                  <li><i class="fa fa-diamond"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+
+            </div>
+
+            
+          </div>
+          
+          <div class = "onecol hover-container">
+            <div class = "col-static" >
+            
+              <div class = "post-half">
+                <div class = "film-card" >
+                  <a class="non-text" href="/film/5.html"><img class="poster" style="height: 200px" src="/images/films/6.png" alt=""></a>
+                  <div class="title"><a href="/film/5.html" class="non-text">ce di mo</a></div>
+                   
+                </div>
+              </div>
+
+              <div class = "info-half">
+
+                
+                <div class = "col-info">
+                  <h3>ce di mo</h3>
+                  <h3>o noapte în governemtn</h3>
+                  <h4>Directed by 
+                    <span class="comma-list" href="">
+                      
+                        <span>Craig Reed</span>
+                      
+                        <a href='/user/7.html'>Sue French</a>
+                      
+                    </span> 
+                  </h4>
+                </div>
+
+              
+                <p>Me wecrepdut caccah diwaw kavih isituc eg tawas omo badoc ro jumwezi bafne pivok pa ruto opusafos. Owi podovomes eti fucduz atvo uciucu da lil suh zid pocactu licwem vokruhiz agu luhet pis tuoju. <!-- <a href="" class="more-link">[more]</a> --></p>	
+
+
+                <ul class= "actions hover-target">
+                  <li><i class="fa fa-diamond"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+
+            </div>
+
+            
+          </div>
+          
+        </div>
+    </div>
+
+  </main>
+  <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+  <script type="text/javascript">
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>search</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/search.css" />
+
+  <link rel="stylesheet" href="/stylesheets/discover.css" />
+  <link rel="stylesheet" href="/stylesheets/cards/film.css">
+  <link rel="stylesheet" href="/stylesheets/actions.css">
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css">
+
+</head>
+<body>
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover.html">discover</a></li>
+      |
+      <li><a href="/discover/film.html">film</a></li>
+      |
+      <li><a href="/discover/music.html">music</a></li>
+      |
+      <li><a href="/discover/book.html">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search.html" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1.html"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management.html">manage</a></li>
+          <li><a href="/login.html">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="search-result tabbed">
+
+      <div class="search-list">
+        <ul>
+          <li>
+            <div><a href="javascript:void(0)" data-tab-for="people" class="tab-selected  tab-item">people/organization</a></div>
+          </li>
+          
+          <li>
+            <div><a href="javascript:void(0)" data-tab-for="film" class="tab-item">film</a></div>
+          </li>
+          
+          <li>
+            <div><a href="javascript:void(0)" data-tab-for="music" class="tab-item">music</a></div>
+          </li>
+          
+          <li>
+            <div><a href="javascript:void(0)" data-tab-for="book" class="tab-item">book</a></div>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="search-detail tab-content" data-tab-name="people">
+        <div class="search-title"><h1>“” search results for people/organization</h1></div>
+        <div class="people-list">
+          
+          <div class="people-result">
+            <div class="img-button">
+              <a href="/user/3.html"><img src="/images/avatars/4.png" alt="" class="avatar"/></a>
+              <button>add friend</button>
+            </div>
+            <div class="people-info">
+              <h3><a href="/user/3.html">Calvin Welch</a></h3>
+              <p>(2 mutual friends | 8 followers)</p>
+              <p>Hungary</p>
+            </div>
+          </div>
+          
+          <div class="people-result">
+            <div class="img-button">
+              <a href="/user/4.html"><img src="/images/avatars/5.png" alt="" class="avatar"/></a>
+              <button>add friend</button>
+            </div>
+            <div class="people-info">
+              <h3><a href="/user/4.html">Rodney Osborne</a></h3>
+              <p>(1 mutual friends | 6 followers)</p>
+              <p>Cuba</p>
+            </div>
+          </div>
+          
+          <div class="people-result">
+            <div class="img-button">
+              <a href="/user/6.html"><img src="/images/avatars/7.png" alt="" class="avatar"/></a>
+              <button>add friend</button>
+            </div>
+            <div class="people-info">
+              <h3><a href="/user/6.html">Elmer Fletcher</a></h3>
+              <p>(2 mutual friends | 8 followers)</p>
+              <p>Liberia</p>
+            </div>
+          </div>
+          
+          <div class="people-result">
+            <div class="img-button">
+              <a href="/user/8.html"><img src="/images/avatars/9.png" alt="" class="avatar"/></a>
+              <button>add friend</button>
+            </div>
+            <div class="people-info">
+              <h3><a href="/user/8.html">Myrtie Rowe</a></h3>
+              <p>(1 mutual friends | 6 followers)</p>
+              <p>Taiwan</p>
+            </div>
+          </div>
+          
+          <div class="people-result">
+            <div class="img-button">
+              <a href="/user/0.html"><img src="/images/avatars/1.png" alt="" class="avatar"/></a>
+              <button>add friend</button>
+            </div>
+            <div class="people-info">
+              <h3><a href="/user/0.html">Dominic Bishop</a></h3>
+              <p>(2 mutual friends | 8 followers)</p>
+              <p>Croatia</p>
+            </div>
+          </div>
+          
+          <div class="people-result">
+            <div class="img-button">
+              <a href="/user/7.html"><img src="/images/avatars/8.png" alt="" class="avatar"/></a>
+              <button>add friend</button>
+            </div>
+            <div class="people-info">
+              <h3><a href="/user/7.html">Sue French</a></h3>
+              <p>(1 mutual friends | 6 followers)</p>
+              <p>Georgia</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      
+      <div class="search-detail tab-content" data-tab-name="film">
+        <div class="search-title"><h1>
+          “” search results for film
+        </h1></div>
+         
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/3.html"><img class="poster" src="/images/films/4.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/3.html">atnoc anaore halisuc / ليلة في الشارع الدردار</a></h2>
+            <div><h3>directed by <span>Helena Soto</span></h3></div>
+             
+            <div><h4>“Pifzawod og vunahbub luijja ruvjuk piapu tiwpag vakoje co ureludlip rumrum abizos kovfe.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">286 likes | 242 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/4.html"><img class="poster" src="/images/films/5.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/4.html">pilop bo go / eine Nacht im governemtn</a></h2>
+            <div><h3>directed by <span>Albert Perez</span></h3></div>
+             
+            <div><h4>“Op ceriro wurhu at se ohamila evomazu numidu lapu mij iwgojber cuflopu ka lihku.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">169 likes | 143 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/6.html"><img class="poster" src="/images/films/7.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/6.html">boj ji fi / 정부의 밤</a></h2>
+            <div><h3>directed by <span>Norman Cooper</span></h3></div>
+             
+            <div><h4>“Di nazkoddew ke zieti neofa red juoh ocwolih pa netove fil jup ruvkaf fu.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">377 likes | 319 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/5.html"><img class="poster" src="/images/films/6.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/5.html">ce di mo / o noapte în governemtn</a></h2>
+            <div><h3>directed by <span>Craig Reed</span></h3></div>
+             
+            <div><h4>“Moj if kaadiomo genreehu bezaet kafjikfoc bib oteowi tigu pidig godi wej puz we.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">169 likes | 143 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/0.html"><img class="poster" src="/images/films/1.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/0.html">me jajov roc / ニレの通りで夜</a></h2>
+            <div><h3>directed by <span>Jason Banks</span></h3></div>
+             
+            <div><h4>“Jivi gis se huh bizje fike cazga muoru sajbo rap ocafov dejwolta zipdal ju ugagahe sog.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">182 likes | 154 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/8.html"><img class="poster" src="/images/films/9.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/8.html">gorrilac mov ra / ọjọgbọn iriri</a></h2>
+            <div><h3>directed by <a href='/user/7.html'>Sue French</a></h3></div>
+             
+            <div><h4>“Ifco iziupi mus dicpok vemupmig eplanos himgo jazmi ugu sekec egaha ko.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">286 likes | 242 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/1.html"><img class="poster" src="/images/films/2.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/1.html">jit vozla rohopha / una noche en la calle del olmp</a></h2>
+            <div><h3>directed by <span>Brian Zimmerman</span></h3></div>
+             
+            <div><h4>“Nuuwep tan zoijfo lezis tomloj butipjaw few tuucu dejju gaucug metugo vafdu evas upujiwnu ko folbuc gohloha.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">208 likes | 176 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/2.html"><img class="poster" src="/images/films/3.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/2.html">hij ve gef / ночь в улице Вязов</a></h2>
+            <div><h3>directed by <span>Rosetta Parsons</span></h3></div>
+             
+            <div><h4>“Lijac orfidcer rice kapu suke luhe luda husi afu ijoso hodemkis ke lagjulzo nodarori.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">169 likes | 143 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/film/7.html"><img class="poster" src="/images/films/8.png" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/film/7.html">miz ezapefo cu / ღამის მთავრობა</a></h2>
+            <div><h3>directed by <a href='/user/3.html'>Calvin Welch</a></h3></div>
+             
+            <div><h4>“Wogelu laule nawesu hurelidu mozowzif uwi davi ilo ocnamup lacra bapdabu de duclame javle zed copmuzfo ti.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">299 likes | 253 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+      
+      <div class="search-detail tab-content" data-tab-name="music">
+        <div class="search-title"><h1>
+          “” search results for music
+        </h1></div>
+         
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/4.html"><img class="poster" src="/images/albums/5.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/4.html">kozmebad cojimir jiwheh / eine Nacht im governemtn</a></h2>
+            <div><h3>directed by <span>Lela Gonzales</span></h3></div>
+             
+            <div><h4>“Pecbe ciz ranovhu nelnotoj avid lemajo eksep big huvru cotnerog pogeeh co joiheap fepa vedupsof vez.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">312 likes | 264 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/1.html"><img class="poster" src="/images/albums/2.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/1.html">we dud nala / una noche en la calle del olmp</a></h2>
+            <div><h3>directed by <span>Lois Harrington</span></h3></div>
+             
+            <div><h4>“Umagacip ipoif lol minnot ta il su joti sehmuzi kudte leva di lele ibaeh kulel jusvuj.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">247 likes | 209 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/2.html"><img class="poster" src="/images/albums/3.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/2.html">palut oso bet / ночь в улице Вязов</a></h2>
+            <div><h3>directed by <a href='/user/10.html'>John Murray</a></h3></div>
+             
+            <div><h4>“Eru pu gu ke wuriv se it pukozinej pagaz vir wos fehvipo joksoh pow uhe.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">195 likes | 165 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/6.html"><img class="poster" src="/images/albums/7.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/6.html">jeawpo paliv umjeuva / 정부의 밤</a></h2>
+            <div><h3>directed by <span>Edna Estrada</span></h3></div>
+             
+            <div><h4>“Jummevowe ubu gogsu kuplortu zon ni kuaw uwiku uwuwub pe usipo sav botu.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">234 likes | 198 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/7.html"><img class="poster" src="/images/albums/8.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/7.html">bebuhe pukac bog / ღამის მთავრობა</a></h2>
+            <div><h3>directed by <span>Bryan Hogan</span></h3></div>
+             
+            <div><h4>“Vajbemre gigel pocebfo wo ajicit gaso ugkogsi juzkov bajzelid icelah ipe ujsi od za ikfu suwma tilmagkaj tatiegu.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">208 likes | 176 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/8.html"><img class="poster" src="/images/albums/9.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/8.html">wetopo jajhiniv wam / ọjọgbọn iriri</a></h2>
+            <div><h3>directed by <span>Jim Barker</span></h3></div>
+             
+            <div><h4>“Bu nu wufe kul faftufa mewadde harohja non giebopo rohticejo nuj uzagob ivoetujog ziskawda.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">234 likes | 198 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/3.html"><img class="poster" src="/images/albums/4.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/3.html">ah re akieku / ليلة في الشارع الدردار</a></h2>
+            <div><h3>directed by <span>Charlie Robbins</span></h3></div>
+             
+            <div><h4>“Ka kegnoju asucooj roleh zopmatsid bud hi idnar jadku ve wivirne me tehzir lacwici gorfoces.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">260 likes | 220 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/5.html"><img class="poster" src="/images/albums/6.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/5.html">se suj irdamto / o noapte în governemtn</a></h2>
+            <div><h3>directed by <span>Jorge Mills</span></h3></div>
+             
+            <div><h4>“Eje ze la zatgesi vo rimbef didmuf ziz deizokic ko zuewa nevit taiv juhwutbat lakgohaz tuho.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">195 likes | 165 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/0.html"><img class="poster" src="/images/albums/1.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/0.html">dofzuk gijco fa / ニレの通りで夜</a></h2>
+            <div><h3>directed by <span>Sadie McGuire</span></h3></div>
+             
+            <div><h4>“Lurtim coregliw gutdu usuocreg nihfiwid caw vafpam jodlil ta pavopimi fipe cojitzi rucivet upimuzut uz.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">221 likes | 187 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/music/9.html"><img class="poster" src="/images/albums/10.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/music/9.html">zeb widkotwu ve / ਪੇਸ਼ੇਵਰ ਅਨੁਭਵ</a></h2>
+            <div><h3>directed by <span>Nicholas Garner</span></h3></div>
+             
+            <div><h4>“Pe izwiburo opi dolahhaf pig tav vosutulu cepacsug zojahoij jefok pim eko.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">221 likes | 187 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+      
+      <div class="search-detail tab-content" data-tab-name="book">
+        <div class="search-title"><h1>
+          “” search results for book
+        </h1></div>
+         
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/7.html"><img class="poster" src="/images/books/8.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/7.html">fir gac huw / ღამის მთავრობა</a></h2>
+            <div><h3>directed by <span>Helena Soto</span></h3></div>
+             
+            <div><h4>“Fice ulude vekse olne jawow mopci ulerokiv rejicpi bohehrag nodi jit be zafamab dup cumuvle kuer zovus higuc.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">234 likes | 198 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/9.html"><img class="poster" src="/images/books/10.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/9.html">esnu ujdaw hakku / ਪੇਸ਼ੇਵਰ ਅਨੁਭਵ</a></h2>
+            <div><h3>directed by <span>Mitchell Osborne</span></h3></div>
+             
+            <div><h4>“Ehuv ho waez la mojis isava cab gekuoso vohko sobdisbu jiuno zatupvor ezgum lac mez awoh nebo.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">286 likes | 242 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/0.html"><img class="poster" src="/images/books/1.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/0.html">keresid hehusti bi / ニレの通りで夜</a></h2>
+            <div><h3>directed by <a href='/user/7.html'>Sue French</a></h3></div>
+             
+            <div><h4>“Ufdolsor akpido nah olvude zu vucepe kuule lufusifa tehsud gug civ we.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">156 likes | 132 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/5.html"><img class="poster" src="/images/books/6.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/5.html">gudwe sarwuag mecug / o noapte în governemtn</a></h2>
+            <div><h3>directed by <span>Charles Boyd</span></h3></div>
+             
+            <div><h4>“Barej idziic mecedpo zofavra madhijpas jowzin evopi coholbog emuape tonpivse curzu olbawu sezuji dewpehu uzaropuf ruis.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">143 likes | 121 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/2.html"><img class="poster" src="/images/books/3.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/2.html">hor du elaebo / ночь в улице Вязов</a></h2>
+            <div><h3>directed by <span>Patrick Mills</span></h3></div>
+             
+            <div><h4>“Nonzetpo gu rif suz vad wuloseb busse bodati fanu genu za awo mibak fa nag.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">221 likes | 187 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/3.html"><img class="poster" src="/images/books/4.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/3.html">ama purewe pe / ليلة في الشارع الدردار</a></h2>
+            <div><h3>directed by <span>Ola Buchanan</span></h3></div>
+             
+            <div><h4>“Ophomba fupfe huk hepcevi daki tov cu zeca nozip obopusok hi wup kevojujik ob pazke wi ur bubdir.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">156 likes | 132 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/4.html"><img class="poster" src="/images/books/5.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/4.html">pu mutatve ub / eine Nacht im governemtn</a></h2>
+            <div><h3>directed by <span>Phoebe Simpson</span></h3></div>
+             
+            <div><h4>“Ke kedebo azisi ogawat pejo kidaz tuidela ce bawfe ridimowav jeufevu gat man ho amurirbec so hoden evidi.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">143 likes | 121 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/6.html"><img class="poster" src="/images/books/7.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/6.html">pas te po / 정부의 밤</a></h2>
+            <div><h3>directed by <span>Angel Morton</span></h3></div>
+             
+            <div><h4>“Ril cof wodduci lima gefsopeg nehwajul ma ekle rohemi jadacnel wufus dirruzi don kac doel le oreliso.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">169 likes | 143 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/1.html"><img class="poster" src="/images/books/2.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/1.html">pi oto nello / una noche en la calle del olmp</a></h2>
+            <div><h3>directed by <span>Hunter Aguilar</span></h3></div>
+             
+            <div><h4>“Hiwcosup isnev rugku ogho kiv de anma itecjoh fohufin vewgoso nahdasake gemso le zuoru ulzutfes il sogiwukas.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">299 likes | 253 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="product-section search-section">
+          <div>
+            <div class="film-card supersmall">
+              <a href="/book/8.html"><img class="poster" src="/images/books/9.jpg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="recom-info search-info">
+            <h2><a href="/book/8.html">li tuzozzad ecuzi / ọjọgbọn iriri</a></h2>
+            <div><h3>directed by <span>Angel Morton</span></h3></div>
+             
+            <div><h4>“Rugiufi ves jieb cawa ji awwoshi tiwo nashokez tavtih zeti kelocum si.”</h4></div>
+            
+            <div class="info-sepa"></div>
+            <div class="like-share" style="margin-bottom: 8px;">
+              <span class="likeinfo">221 likes | 187 collects</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-diamond collecticon"></i></li>
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+      
+
+      </div>
+
+    </div>
+  </main>
+  <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/tabs.js"></script>
+</body>
+</html>
