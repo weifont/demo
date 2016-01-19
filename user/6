@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Picassonian</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/feed.css" />
+  <link rel="stylesheet" href="/stylesheets/cards/film.css" />
+  <link rel="stylesheet" href="/stylesheets/cards/collection.css" />
+  <link rel="stylesheet" href="/stylesheets/comments.css" />
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css" />
+  <link rel="stylesheet" href="/stylesheets/actions.css" />
+  <link rel="stylesheet" href="/stylesheets/user.css" />
+  <link rel="stylesheet" href="/stylesheets/feed.css" />
+  <link rel="stylesheet" href="/stylesheets/separation.css" />
+  <link rel="stylesheet" href="/stylesheets/popup.css" />
+  <link rel="stylesheet" href="/stylesheets/collection-editor.css" />
+  <link rel="stylesheet" href="/stylesheets/dropdown.css" />
+
+  <script type="text/javascript" src="/bower_components/ScrollToFixed/jquery-scrolltofixed.js"></script>
+  <script type="text/javascript" src="/bower_components/Sortable/Sortable.js"></script>
+  <script type="text/javascript" src="/bower_components/Sortable/jquery.binding.js"></script>
+
+</head>
+<body>
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover">discover</a></li>
+      |
+      <li><a href="/discover/film">film</a></li>
+      |
+      <li><a href="/discover/music">music</a></li>
+      |
+      <li><a href="/discover/book">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management">manage</a></li>
+          <li><a href="/login">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="cover">
+      <img class="background" src="/images/cover/user/7.png" alt="">
+      <div class="content">
+        <div class="avatar-container">
+          <img class="avatar" src="/images/avatars/7.png" alt="">
+        </div>
+        <div class="intro">
+          <span class="location">Christmas Island</span>
+          <span class="name">Louisa Jacobs</span>
+          <span class="brief">
+            10 collections
+            <button>add friend</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content tabbed">
+      <div id="tabs-container" class="tabs-container">
+        <ul id="tabs" class="tabs sticky" data-sticky="50">
+          <li>
+            <a data-tab-for="profile" class="tab-selected tab-item" href="javascript:void(0)">profile</a>
+          </li>
+          <li>
+            <a data-tab-for="collections" class="tab-item" href="javascript:void(0)">collections</a>
+            <!--<ul class="collection-categories">
+              <li>film</li>
+              <li>music</li>
+              <li>book</li>
+            </ul>-->
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content" id="profile" data-tab-name="profile">
+        <div class="friends feed">
+          <h2 class="bottom-separation">Wes’ Friends (2 common friends | 4 total)</h2>
+          <div class="friend-list">
+            <ul class="avatars">
+            
+              <li><a href="/user/1"><img
+                  src="/images/avatars/2.png"
+                  title="Maria Griffith"
+                  alt="Maria Griffith" /></a></li>
+            
+              <li><a href="/user/9"><img
+                  src="/images/avatars/10.png"
+                  title="Lois Walker"
+                  alt="Lois Walker" /></a></li>
+            
+              <li><a href="/user/8"><img
+                  src="/images/avatars/9.png"
+                  title="Jonathan Floyd"
+                  alt="Jonathan Floyd" /></a></li>
+            
+              <li><a href="/user/3"><img
+                  src="/images/avatars/4.png"
+                  title="Maggie Ryan"
+                  alt="Maggie Ryan" /></a></li>
+            
+            </ul>
+            <a href="javascript:void(0);" class="more-link">[more]</a>
+          </div>
+        </div>
+        <div>
+ <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/8">Jonathan Floyd</a>'s collection - <a href="/user/8/collection/36">ezobo vuznerbi on</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/8/collection/36"><img class="poster" src="/images/cover/collection/film/4.png" alt=""></a>
+        <div class="title"><a href="/user/8/collection/36" class="non-text">ezobo vuznerbi on</a></div>
+        <div class="detail">by <a href="/user/8">Jonathan Floyd</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed collect">
+  
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> collected</span><span class="datetime">Today 7am</span><br />
+      <span class="detail">in collection - 
+        <a href="/user/0/collection/30">
+          ga cih ki
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/film/3"><img class="poster" src="/images/films/4.png" alt=""></a>
+        <div class="title"><a href="/film/3" class="non-text">bupda zel jaggu</a></div>
+        <div class="detail">by <span>Sophia Summers</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Bel vewka hoket ekrut wal vuwgasuka pazi mil onfow izkeda lafkibfag cocesem tomdudpi lerwideh ziwjir penez tepsuz. Sid hasveib ca jejeveha het ilabu be famoan huwla boteaf kofivlu onejur jef cowner kucsugje iferiune.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa checked"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/0">Michael Craig</a>,
+     
+      <a href="/user/4">Lettie Simon</a>,
+     
+     and other 7 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/5">Elizabeth McKenzie</a> Edi kez rihe lupu imnon tum daoli efle cihun cagrozeh wov wi himmizev hu.
+    </li>
+    
+    <li>
+      <a href="/user/5">Elizabeth McKenzie</a> Enfajul gam oviolelej numomu jivmohuv bot hikucig mubta arfok razacav pa zobtohe.
+    </li>
+    
+    <li>
+      <a href="/user/0">Michael Craig</a> Dod ninga jagufa kizavo momoponof horju wu pu tuf wojku mokdajit num hivvo nipejis tuzaz.
+    </li>
+    
+    <li>
+      <a href="/user/3">Maggie Ryan</a> Magiri otiboge wo ohocodcu uvbe id jewsadneb cubza we hailof lo wig wabverofu.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>
+
+  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/1">Maria Griffith</a>'s collection - <a href="/user/1/collection/45">dan movuc momaidu</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/1/collection/45"><img class="poster" src="/images/cover/collection/music/8.png" alt=""></a>
+        <div class="title"><a href="/user/1/collection/45" class="non-text">dan movuc momaidu</a></div>
+        <div class="detail">by <a href="/user/1">Maria Griffith</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed collect">
+  
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> collected</span><span class="datetime">Today 7am</span><br />
+      <span class="detail">in collection - 
+        <a href="/user/4/collection/89">
+          epvudiz akpumze umhugac
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/music/6"><img class="poster" src="/images/albums/7.jpg" alt=""></a>
+        <div class="title"><a href="/music/6" class="non-text">rasuw rod wogironeh</a></div>
+        <div class="detail">by <span>Shane McCormick</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Mortuna gofev uvuegvaw ka puiz ho mapid tu uw roh cezim eru wuat. Vevad foz rijtavwij ivuza zanehsow wecpefo no gigkunu jeeni adbag bowejon sicno dun palgo.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa checked"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/1">Maria Griffith</a>,
+     
+      <a href="/user/7">Jimmy Marsh</a>,
+     
+     and other 12 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/0">Michael Craig</a> Elu ciz te ri gewi ar wetraak bes ro gew veh lewgel kijov.
+    </li>
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Zapjante rancu ucativ orakun caja alolkon mozeglam utenedef ebtig obgi gu vud kued ceuwhup posanag upesec.
+    </li>
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Asi gap muni burewti ji tobjisno lib iti ivsezvi efgo uvavo ojojo pom habuwucel.
+    </li>
+    
+    <li>
+      <a href="/user/3">Maggie Ryan</a> Di dudiw ok nolnokma ibluhbaz ogse peodmi uteih satnu vuc tonitud eb wavi songo cero famcelulo.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>
+
+  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/6">Louisa Jacobs</a>'s
+        collection -
+        <a href="/user/6/collection/55">
+          fu ku caruj
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/film/5"><img class="poster" src="/images/films/6.png" alt=""></a>
+        <div class="title"><a href="/film/5" class="non-text">wi omu del</a></div>
+        <div class="detail">by <span>Charlie Mullins</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Siti paugka mojgu cap zipnibvi inapoiki ke bozpi colri dalsof wuti lu rer giz. Nokemman puef ojufi otofa pehmufiv azfezof hubmi pej ihonu eruhaor mahges lusot safaztak wa poub huh cusij.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/4">Lettie Simon</a>,
+     
+      <a href="/user/9">Lois Walker</a>,
+     
+     and other 5 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/7">Jimmy Marsh</a> Vun ruffikes ji ra sinhiz rehop ovidi sak gi se hacoplud zezcek.
+    </li>
+    
+    <li>
+      <a href="/user/3">Maggie Ryan</a> Nuuhazo nivci bok lelhoseh boeva ti zo onuakaame dot cojud mepute pi.
+    </li>
+    
+    <li>
+      <a href="/user/9">Lois Walker</a> Zupag oh cujah vu zi haljaili ojpakto ale haz cesidku fusam nacci.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/1">Maria Griffith</a>'s
+        collection -
+        <a href="/user/1/collection/92">
+          diganpu jajozel ashi
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/film/1"><img class="poster" src="/images/films/2.png" alt=""></a>
+        <div class="title"><a href="/film/1" class="non-text">jawli iwoibifed enel</a></div>
+        <div class="detail">by <span>Alta Luna</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Fofnad culelana fo ca nijnuc kibud govlu taz co nin ene cupekew hahajzo paazowa igrar. Ikvihjav lagokuf iv sesefo okjeibu jiasmu cifa povsa nof ke re gizehu sap hizpu rokulpav ba.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/6">Louisa Jacobs</a>,
+     
+      <a href="/user/10">Eugenia Cain</a>,
+     
+     and other 4 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/9">Lois Walker</a> Jigfuloj vepitkag as ev camutoh vi susuk sooj owu pizego kiwudbow ruppiko conagen husujhek ner.
+    </li>
+    
+    <li>
+      <a href="/user/4">Lettie Simon</a> Bab sotik kebalgo ul dajlito huhu vofdede jow kinni simkameco nufes sipikuk somjumu fuc hucvuzli jutezab giavobew wihilfu.
+    </li>
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Mem mofab mango molilamum gubisega cawgu deibe pu pidiwin nomovam leok ovufursu kecfudijo.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed collect">
+  
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> collected</span><span class="datetime">Today 7am</span><br />
+      <span class="detail">in collection - 
+        <a href="/user/7/collection/62">
+          vaore idecag bip
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/music/5"><img class="poster" src="/images/albums/6.jpg" alt=""></a>
+        <div class="title"><a href="/music/5" class="non-text">jozedva di wibotdo</a></div>
+        <div class="detail">by <span>Isabelle Curtis</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Di rub uzinonru puab jigvuf tocacafe pacnode ze bafiwiz kicehtuv pedug weruza. Ped jug oco coc sotuzo ic pum uculoji unonol usagognan tudog sa ehuruj wirazeh amafokir fo.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa checked"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/5">Elizabeth McKenzie</a>,
+     
+      <a href="/user/2">Elsie Nelson</a>,
+     
+     and other 10 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/10">Eugenia Cain</a> Tuhutko ijsedag awu be zomwudto fowo bekkieva zahakuh zekji povfob ol ineti buehi.
+    </li>
+    
+    <li>
+      <a href="/user/2">Elsie Nelson</a> Meni raf ora etu leacozi tu wi weja no cudocad dawuw hatamur tiomul rimuog jom.
+    </li>
+    
+    <li>
+      <a href="/user/10">Eugenia Cain</a> Zawhig cezjok ziunfah ronka ci wuhokpi mikzeg vehwudar tiavi ecupen nir ko his.
+    </li>
+    
+    <li>
+      <a href="/user/5">Elizabeth McKenzie</a> Ika run pa ded kon wagidujud sugki miw jabonlu vag fi cu pep epulikdo mogoj agome.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>
+
+  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/7">Jimmy Marsh</a>'s
+        collection -
+        <a href="/user/7/collection/70">
+          uvom nefwij fazja
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/music/0"><img class="poster" src="/images/albums/1.jpg" alt=""></a>
+        <div class="title"><a href="/music/0" class="non-text">karak duwide nonpak</a></div>
+        <div class="detail">by <span>Nettie Morrison</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Do fo ofiwic pallabu notter diukbe tu sowrutud kumid fo cehcip kadofved fujogwek. Isgala gov jeap hanaga noferta kawten ito ved do va bufuzi iv.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/10">Eugenia Cain</a>,
+     
+      <a href="/user/2">Elsie Nelson</a>,
+     
+     and other 9 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Lin fildeh tupitruc zik kupoj jurar zuh fibkibe zeimote datsow hiisela urcuc wizepimo tagek onlaus.
+    </li>
+    
+    <li>
+      <a href="/user/0">Michael Craig</a> Natuk koon jekofto petgodhi ukubal pe eni fap ad di ruzajeh vuti darav da.
+    </li>
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Sik go ow hevsupi icusawa supwuci behapgub luviba tec sedo avudinco num lodarabi poh neas nuasi jokzicwo.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/6">Louisa Jacobs</a>'s
+        collection -
+        <a href="/user/6/collection/55">
+          fu ku caruj
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/film/1"><img class="poster" src="/images/films/2.png" alt=""></a>
+        <div class="title"><a href="/film/1" class="non-text">jawli iwoibifed enel</a></div>
+        <div class="detail">by <span>Alta Luna</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Katofne luplicdez moip koc joktejva utulo tazdevce nikaaru tilu su ve domipe ubuki maemok epoew louzfap pomle. Watwaj or iw nigeg sujhe fahaw linfiab ber vu ciw mitwumav sokvo akbovze nijnov invopi mi mawwe vas.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/4">Lettie Simon</a>,
+     
+      <a href="/user/7">Jimmy Marsh</a>,
+     
+     and other 4 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/10">Eugenia Cain</a> Lahbir ivcamo kef likvorizo piv dehaslu cibjowow habbic zi ton dawuw omosuv.
+    </li>
+    
+    <li>
+      <a href="/user/7">Jimmy Marsh</a> To dufunraf ike dekgimo wuzo zatol omobece walhuboj pe higgoufi pus uh be deimfij kozves niw.
+    </li>
+    
+    <li>
+      <a href="/user/7">Jimmy Marsh</a> Sohtoah jemwot ofemun meisok viha nehoncig wapuk ibeujle afewe idibulibo vek nud.
+    </li>
+    
+    <li>
+      <a href="/user/7">Jimmy Marsh</a> Disrukuj kedoton cuhirowo gevo upba tosji fori hapog neme apsuv riovo judvi ovdof dozpa etaftut uri bicimzu dodanti.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/0">Michael Craig</a>'s collection - <a href="/user/0/collection/30">ga cih ki</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/0/collection/30"><img class="poster" src="/images/cover/collection/film/8.png" alt=""></a>
+        <div class="title"><a href="/user/0/collection/30" class="non-text">ga cih ki</a></div>
+        <div class="detail">by <a href="/user/0">Michael Craig</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed collect">
+  
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> collected</span><span class="datetime">Today 7am</span><br />
+      <span class="detail">in collection - 
+        <a href="/user/1/collection/3">
+          imrebto garafle maus
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/book/6"><img class="poster" src="/images/books/7.jpg" alt=""></a>
+        <div class="title"><a href="/book/6" class="non-text">hodumo uti nol</a></div>
+        <div class="detail">by <span>Chris Walker</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Dop vohve ref ro mapsugtul barif howsiv totnap susukih bahore cogi mejpa. Sitozkiw sosod duza kel sewnuc dovsisko howij sasojbur imi ufpuvu ham pujso.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa checked"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/2">Elsie Nelson</a>,
+     
+      <a href="/user/7">Jimmy Marsh</a>,
+     
+     and other 10 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/7">Jimmy Marsh</a> Caitfom kaf fure ce sog pep zuk tek pa ili duwvugef nipini zabpe.
+    </li>
+    
+    <li>
+      <a href="/user/10">Eugenia Cain</a> Set zuine ru iplupa giig ewuhoen dondini vom guco futzic uwcib kuzocfi cuvep okezo purovzer.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>
+
+  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/10">Eugenia Cain</a>'s collection - <a href="/user/10/collection/95">jaij esu nula</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/10/collection/95"><img class="poster" src="/images/cover/collection/book/10.png" alt=""></a>
+        <div class="title"><a href="/user/10/collection/95" class="non-text">jaij esu nula</a></div>
+        <div class="detail">by <a href="/user/10">Eugenia Cain</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/0">Michael Craig</a>'s collection - <a href="/user/0/collection/22">zim kir fehe</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/0/collection/22"><img class="poster" src="/images/cover/collection/book/2.png" alt=""></a>
+        <div class="title"><a href="/user/0/collection/22" class="non-text">zim kir fehe</a></div>
+        <div class="detail">by <a href="/user/0">Michael Craig</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed collect">
+  
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> collected</span><span class="datetime">Today 7am</span><br />
+      <span class="detail">in collection - 
+        <a href="/user/1/collection/45">
+          dan movuc momaidu
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/music/5"><img class="poster" src="/images/albums/6.jpg" alt=""></a>
+        <div class="title"><a href="/music/5" class="non-text">jozedva di wibotdo</a></div>
+        <div class="detail">by <span>Isabelle Curtis</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Wikoviz izakuna do dogis nu idadapna kit bik wol fup fobuf jajepo. Te fofi conu mis haromi ami oco vapucvo og kedivda rafawo povcokzi mu sow bi hanerun.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa checked"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/4">Lettie Simon</a>,
+     
+      <a href="/user/1">Maria Griffith</a>,
+     
+     and other 6 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Vafmepru piwev oja imu athi gifelzav riknecda cuhewic soj zewsig lolef sulli tumicelu.
+    </li>
+    
+    <li>
+      <a href="/user/5">Elizabeth McKenzie</a> Tujfehhej netekbo uzatzed feze duhmo zeru aw pik al amo dabagti dimlurac addi eno av dusutmas lazeb.
+    </li>
+    
+    <li>
+      <a href="/user/3">Maggie Ryan</a> Diruj itkoju sec kactipo infun rakzaag oviuwa sorocjok kivpeoka obetsuw se gu kuap itfevji tiricabe tewumo do.
+    </li>
+    
+    <li>
+      <a href="/user/4">Lettie Simon</a> Vipzun cafmawwes upawpa jozip usezanva hegmehte kitved ow okuiwe vah etu vughupi me lawdoc ja hen.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>
+
+  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/0">Michael Craig</a>'s collection - <a href="/user/0/collection/52">kupwev kejurza ak</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/0/collection/52"><img class="poster" src="/images/cover/collection/film/10.png" alt=""></a>
+        <div class="title"><a href="/user/0/collection/52" class="non-text">kupwev kejurza ak</a></div>
+        <div class="detail">by <a href="/user/0">Michael Craig</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/0">Michael Craig</a>'s
+        collection -
+        <a href="/user/0/collection/19">
+          ofe nuc wum
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/film/5"><img class="poster" src="/images/films/6.png" alt=""></a>
+        <div class="title"><a href="/film/5" class="non-text">wi omu del</a></div>
+        <div class="detail">by <span>Charlie Mullins</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Apizurete awrab beip ratfobkez bigi vafuwu ujuhewbih ha cisov hiz dumgoud ami wadgar bizgagzur icufo zepuhdu. Gun luojpen penwud atuez adarif fitib degzud dot uvpaw cerebiosu otefeha vimaka oti.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/10">Eugenia Cain</a>,
+     
+      <a href="/user/2">Elsie Nelson</a>,
+     
+     and other 11 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/7">Jimmy Marsh</a> Opakid eco vekalo zuogwuf bitvep idudes pug suk jito izowiva kanifisok rah onnevbap.
+    </li>
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Cifmejsa lusafow kab hozse ci ajjofaj ke rag donga pevik webu gehgiw.
+    </li>
+    
+    <li>
+      <a href="/user/9">Lois Walker</a> Aruthek vek wetni kasrume jub egijirum zuwzuufe ivdut daedu nadacow fa cabpiel kusimufo eba pecwiv.
+    </li>
+    
+    <li>
+      <a href="/user/6">Louisa Jacobs</a> Ginifto biwa vuhda socesob wor fad dicfor gokehus purtuf muape borbizwug na hu.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed collect">
+  
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> collected</span><span class="datetime">Today 7am</span><br />
+      <span class="detail">in collection - 
+        <a href="/user/1/collection/7">
+          av wutez neof
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/music/8"><img class="poster" src="/images/albums/9.jpg" alt=""></a>
+        <div class="title"><a href="/music/8" class="non-text">figos ililawe livowcu</a></div>
+        <div class="detail">by <span>Alice Morgan</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Voh nuccofe mih fagroc ulruv fonrirtuf fet luvjuiho pevgicu teva zetnaj bekohutu suw guut. Suowtup revku set gocna faszufak ahegoc wo soine gozinlo pamajke fowim ehgicem erosuz mov wor pec fo.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa checked"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/4">Lettie Simon</a>,
+     
+      <a href="/user/10">Eugenia Cain</a>,
+     
+     and other 11 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/3">Maggie Ryan</a> Riceh ovmiras enemutbiv cihuj hufo davufaw vucon tosoguizu rutre gejiljec gircunu zosti jun no hetsopez mib jiwka guwil.
+    </li>
+    
+    <li>
+      <a href="/user/2">Elsie Nelson</a> Boc kihood voudfar ismifebo ejge kur kodjuven ice no midigu totso teszih galpeg sorekuh id jangamci zirodu cocfi.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>
+
+  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/5">Elizabeth McKenzie</a>'s collection - <a href="/user/5/collection/6">newre uzkotone bafik</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/5/collection/6"><img class="poster" src="/images/cover/collection/book/7.png" alt=""></a>
+        <div class="title"><a href="/user/5/collection/6" class="non-text">newre uzkotone bafik</a></div>
+        <div class="detail">by <a href="/user/5">Elizabeth McKenzie</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/10">Eugenia Cain</a>'s
+        collection -
+        <a href="/user/10/collection/71">
+          donu keb tap
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/book/0"><img class="poster" src="/images/books/1.jpg" alt=""></a>
+        <div class="title"><a href="/book/0" class="non-text">odtis wisihkat kuwew</a></div>
+        <div class="detail">by <span>Randall Pena</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Biruh se bubku calpugup vukesbeh muv nulrarke ubakomve uwe ka nopomudut muzul uw humjudof eta tetbog rusojeb. Pefavlec renohosus lo bafos tavkukul ben oltako pilogan ze seca panzo tiduwem ugpa kok sabasfo wez dohfotmat.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/6">Louisa Jacobs</a>,
+     
+      <a href="/user/9">Lois Walker</a>,
+     
+     and other 4 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/4">Lettie Simon</a> Ger utu bok wiwotuk tetzuju si wakubve ralude saf et vomugi reipi.
+    </li>
+    
+    <li>
+      <a href="/user/10">Eugenia Cain</a> Ule iniruga sikta wo jodras fice diuwe decuh zig ad dezgos kaznuca evkeflew tiofos.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/10">Eugenia Cain</a>'s collection - <a href="/user/10/collection/27">ud rujbapez vecrajib</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/10/collection/27"><img class="poster" src="/images/cover/collection/music/2.png" alt=""></a>
+        <div class="title"><a href="/user/10/collection/27" class="non-text">ud rujbapez vecrajib</a></div>
+        <div class="detail">by <a href="/user/10">Eugenia Cain</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/0">Michael Craig</a>'s
+        collection -
+        <a href="/user/0/collection/42">
+          emgo kod rep
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/book/8"><img class="poster" src="/images/books/9.jpg" alt=""></a>
+        <div class="title"><a href="/book/8" class="non-text">zoksadop ci jebahwon</a></div>
+        <div class="detail">by <span>Noah Jackson</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Mecizira udoziam dazig revreso uci mogogkef fuce ama jo ofe jujsa ar fawzegudo hubuti coplu utaeje zon ke. Izuilo to pa figoj mezolo usdieka ge hudzi ti awezifwej boezdod vi udoewli obdurnu uk idcif vojaw ivate.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/10">Eugenia Cain</a>,
+     
+      <a href="/user/8">Jonathan Floyd</a>,
+     
+     and other 12 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/0">Michael Craig</a> Guh ebabaom umahuz wohfenot atidihav ujew gowpatre alrem kuaz miturep gega jem fun watfud oki urlepjo ha fijhi.
+    </li>
+    
+    <li>
+      <a href="/user/2">Elsie Nelson</a> Ho maozli secgav nebej pociowi nujavmo liukita rocojgow lip cepapab nah vifuldow wiokotim vomatacef.
+    </li>
+    
+    <li>
+      <a href="/user/10">Eugenia Cain</a> Cuw we sajgahug dico roij liktafej guzo ko feramik da dozdu kopvos gat ifu da.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed share">
+
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> shared</span><span class="datetime">Yesterday 8pm</span><br />
+      <span class="detail">
+        from <a href="/user/7">Jimmy Marsh</a>'s
+        collection -
+        <a href="/user/7/collection/70">
+          uvom nefwij fazja
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/music/2"><img class="poster" src="/images/albums/3.jpg" alt=""></a>
+        <div class="title"><a href="/music/2" class="non-text">opolalu petu nejino</a></div>
+        <div class="detail">by <a href='/user/2'>Elsie Nelson</a></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Pi loutaav debhaven dafiw turka erniz jofder sevad pud hinhow vasinu ibujotla elarofumi riav vokpa sopejko dabilraj ekas. Avu megsutvab apkoseku is puf jet vakead kaijuiju ku javime nopgor piujaeli res gogpudkor of gonuktok kaznigi eglujza.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/9">Lois Walker</a>,
+     
+      <a href="/user/8">Jonathan Floyd</a>,
+     
+     and other 14 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Iranij aso ve ec gozrose beteme ne mobaga rafi uwita ti duwan zupse likripti re bekori.
+    </li>
+    
+    <li>
+      <a href="/user/6">Louisa Jacobs</a> Gewpukza pi kupevi pas halaija fog zib de vikuf omodo nuituza loalhi ero bigen jim getlefva houmo zasuge.
+    </li>
+    
+    <li>
+      <a href="/user/5">Elizabeth McKenzie</a> Jomcadu katu zogseg ci zudzep zivtuc kuzavi emner fajur benah kihju bon.
+    </li>
+    
+    <li>
+      <a href="/user/6">Louisa Jacobs</a> Huevalam gok sukcedbu esaakudo wuzopih zivhu hounwej tik ceahe uv hati gegopku jihuma takliwke jiv puw usa.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/9">Lois Walker</a>'s collection - <a href="/user/9/collection/80">eb lokviveb livim</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/9/collection/80"><img class="poster" src="/images/cover/collection/film/2.png" alt=""></a>
+        <div class="title"><a href="/user/9/collection/80" class="non-text">eb lokviveb livim</a></div>
+        <div class="detail">by <a href="/user/9">Lois Walker</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="feed collect">
+  
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> collected</span><span class="datetime">Today 7am</span><br />
+      <span class="detail">in collection - 
+        <a href="/user/3/collection/63">
+          eb padum me
+        </a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="half film">
+      <div class="film-card">
+        <a href="/book/8"><img class="poster" src="/images/books/9.jpg" alt=""></a>
+        <div class="title"><a href="/book/8" class="non-text">zoksadop ci jebahwon</a></div>
+        <div class="detail">by <span>Noah Jackson</span></div>
+      </div>
+    </div>
+    <div class="half comments">
+      Laver ot hu viv dihisa ewfig dobmuc ba ig fempe erget ajzov rudirha bimiezu or vu. Wawage fimuce ropimler utenav falad vevbuop cil sosolefo muisusos vujeuc ekfob buru to.
+    </div>
+  </div>
+  <ul class="actions">
+    <li><i class="fa fa-diamond"></i></li>
+    <li><i class="fa fa-share-alt"></i></li>
+    <li><i class="like-btn fa checked"></i></li>
+  </ul>
+  <div class="like-statistics">
+    <p>You,
+     
+      <a href="/user/4">Lettie Simon</a>,
+     
+      <a href="/user/9">Lois Walker</a>,
+     
+     and other 11 like this</p>
+  </div>
+  <ul class="comments">
+    
+    <li>
+      <a href="/user/2">Elsie Nelson</a> Namlig ris pivlarem soz ukewap zopgir we oruhete kuzujke wemjanu imaoli uh ka hefpaeri les za cavocu hapke.
+    </li>
+    
+    <li>
+      <a href="/user/1">Maria Griffith</a> Wad giflaciv eniun vaesva bihmera gicbij ju citebgob behzi vuhov fara fojdesoj seefum iljekas vo.
+    </li>
+    
+    <li>
+      <a href="/user/10">Eugenia Cain</a> Wato wetowi movjetfab bopsa efonuzim vurama suz pabmumo gawasi mahke cawliral az jagetesi.
+    </li>
+    
+    <li>
+      <a href="/user/8">Jonathan Floyd</a> Anucu pivuzpe nozwap cab abi fikewi wo mub vowavuh miuvo dafe nuduhil zi ruza lacte.
+    </li>
+    
+      
+    <li>
+      <a>You</a> <input type="text" class="new-comment" placeholder="leave comment here"/>
+    </li>
+  </ul>
+</div>
+
+  <div class="feed follow">
+  
+  <header>
+    <a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a>
+    <div class="behavior">
+      <span class="title"><a href="/user/6">Louisa Jacobs</a> follows</span><span class="datetime">Yesterday 2pm</span><br />
+      <span class="detail">
+        <a href="/user/9">Lois Walker</a>'s collection - <a href="/user/9/collection/9">balge vahu in</a>
+      </span>
+    </div>
+  </header>
+  <div class="content">
+    <div class="collection-card">
+      <div class="content">
+        <a href="/user/9/collection/9"><img class="poster" src="/images/cover/collection/film/6.png" alt=""></a>
+        <div class="title"><a href="/user/9/collection/9" class="non-text">balge vahu in</a></div>
+        <div class="detail">by <a href="/user/9">Lois Walker</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+</div>
+
+        
+      </div><!-- profile -->
+
+      <div class="tab-content" id="collections" data-tab-name="collections">
+        
+        
+        <section class="works-list">
+          <h2>
+            film
+            <span class="sub">(4 collections | 12 items)</span>
+            <button class="edit-btn popup-button" data-popup-for="film-collection-editor"><i class="fa fa-pencil"></i>edit</button>
+          </h2>
+          <div class="works">
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/10">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/film/2.png" alt="">
+                  <div class="title">luvlemjiz nu obeducit</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/24">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/film/3.png" alt="">
+                  <div class="title">unwurzo puotuta ral</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/55">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/film/9.png" alt="">
+                  <div class="title">fu ku caruj</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/90">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/film/8.png" alt="">
+                  <div class="title">rofji hodez ujmum</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+          </div>
+          <!--<p class="more">
+            <a href="" class="more-link">[more film collections]</a>
+          </p>-->
+        </section>
+        
+        
+        <section class="works-list">
+          <h2>
+            music
+            <span class="sub">(4 collections | 12 items)</span>
+            <button class="edit-btn popup-button" data-popup-for="music-collection-editor"><i class="fa fa-pencil"></i>edit</button>
+          </h2>
+          <div class="works">
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/37">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/music/9.png" alt="">
+                  <div class="title">refwes mutcud figeksem</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/38">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/music/3.png" alt="">
+                  <div class="title">mot med linu</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/68">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/music/8.png" alt="">
+                  <div class="title">supu reodaze vevehve</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/88">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/music/9.png" alt="">
+                  <div class="title">orewikaz fud kos</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+          </div>
+          <!--<p class="more">
+            <a href="" class="more-link">[more music collections]</a>
+          </p>-->
+        </section>
+        
+        
+        <section class="works-list">
+          <h2>
+            book
+            <span class="sub">(2 collections | 6 items)</span>
+            <button class="edit-btn popup-button" data-popup-for="book-collection-editor"><i class="fa fa-pencil"></i>edit</button>
+          </h2>
+          <div class="works">
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/75">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/book/1.png" alt="">
+                  <div class="title">navara kuzubabo edo</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            <div class="hover-container">
+              <a class="collection-card small non-text"
+                href="/user/6/collection/82">
+                <div class="content">
+                  <img class="poster" src="/images/cover/collection/book/4.png" alt="">
+                  <div class="title">pahi rim zihim</div>
+                  <!--<div class="detail">film by <a>Quentin Tarantino</a></div>-->
+                </div>
+              </a>
+              <div class="collection-action hover-target">
+                <button>follow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            
+          </div>
+          <!--<p class="more">
+            <a href="" class="more-link">[more book collections]</a>
+          </p>-->
+        </section>
+        
+      </div>
+    </div>
+  </main>
+
+  <div id="popup-container">
+    
+    
+    
+    <div class="popup-window collection-editor" data-popup-name="film-collection-editor">
+      <div class="title">
+        <span class="text">film collections</span>
+        <!-- <div class="add-collection">
+          <button class="add-button">add</button>
+          <div class="add-dialog">
+            <div class="triangle"></div>
+            <div class="content">
+              <input type="text" placeholder="new collection's name" />
+            </div>
+          </div>
+        </div> -->
+        <button class="stateful-button reorder-button">reorder</button>
+        <button class="popup-close-button">close</button>
+      </div>
+      <main>
+        <div class="content">
+          <ul class="collection-list">
+            
+            <li>
+              <span class="name">luvlemjiz nu obeducit</span>
+              <input type="text" class="name-editor" value="luvlemjiz nu obeducit" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+            <li>
+              <span class="name">unwurzo puotuta ral</span>
+              <input type="text" class="name-editor" value="unwurzo puotuta ral" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+            <li>
+              <span class="name">fu ku caruj</span>
+              <input type="text" class="name-editor" value="fu ku caruj" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+            <li>
+              <span class="name">rofji hodez ujmum</span>
+              <input type="text" class="name-editor" value="rofji hodez ujmum" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+          </ul>
+        </div>
+      </main>
+      <div class="bottom-bar">
+        <!-- <div class="width-space-holder"></div>       
+        <button class="ok-button popup-close-button">cancel</button>
+        <button class="ok-button popup-close-button">ok</button> -->
+        32 collections
+      </div>
+    </div>
+     
+    
+    <div class="popup-window collection-editor" data-popup-name="music-collection-editor">
+      <div class="title">
+        <span class="text">music collections</span>
+        <!-- <div class="add-collection">
+          <button class="add-button">add</button>
+          <div class="add-dialog">
+            <div class="triangle"></div>
+            <div class="content">
+              <input type="text" placeholder="new collection's name" />
+            </div>
+          </div>
+        </div> -->
+        <button class="stateful-button reorder-button">reorder</button>
+        <button class="popup-close-button">close</button>
+      </div>
+      <main>
+        <div class="content">
+          <ul class="collection-list">
+            
+            <li>
+              <span class="name">refwes mutcud figeksem</span>
+              <input type="text" class="name-editor" value="refwes mutcud figeksem" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+            <li>
+              <span class="name">mot med linu</span>
+              <input type="text" class="name-editor" value="mot med linu" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+            <li>
+              <span class="name">supu reodaze vevehve</span>
+              <input type="text" class="name-editor" value="supu reodaze vevehve" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+            <li>
+              <span class="name">orewikaz fud kos</span>
+              <input type="text" class="name-editor" value="orewikaz fud kos" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+          </ul>
+        </div>
+      </main>
+      <div class="bottom-bar">
+        <!-- <div class="width-space-holder"></div>       
+        <button class="ok-button popup-close-button">cancel</button>
+        <button class="ok-button popup-close-button">ok</button> -->
+        32 collections
+      </div>
+    </div>
+     
+    
+    <div class="popup-window collection-editor" data-popup-name="book-collection-editor">
+      <div class="title">
+        <span class="text">book collections</span>
+        <!-- <div class="add-collection">
+          <button class="add-button">add</button>
+          <div class="add-dialog">
+            <div class="triangle"></div>
+            <div class="content">
+              <input type="text" placeholder="new collection's name" />
+            </div>
+          </div>
+        </div> -->
+        <button class="stateful-button reorder-button">reorder</button>
+        <button class="popup-close-button">close</button>
+      </div>
+      <main>
+        <div class="content">
+          <ul class="collection-list">
+            
+            <li>
+              <span class="name">navara kuzubabo edo</span>
+              <input type="text" class="name-editor" value="navara kuzubabo edo" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+            <li>
+              <span class="name">pahi rim zihim</span>
+              <input type="text" class="name-editor" value="pahi rim zihim" />
+
+              <div class="editor-buttons">
+                <div class="ok-button">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div class="cancel-button">
+                  <span class="fa fa-times"></span>
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="rename-button">rename</button>
+                <button class="delete-button">delete</button>
+              </div>
+              <span class="reorder-tip">
+                drag to reorder
+              </span>
+            </li>
+            
+          </ul>
+        </div>
+      </main>
+      <div class="bottom-bar">
+        <!-- <div class="width-space-holder"></div>       
+        <button class="ok-button popup-close-button">cancel</button>
+        <button class="ok-button popup-close-button">ok</button> -->
+        32 collections
+      </div>
+    </div>
+     
+  </div>
+  <script type="text/javascript">
+//<!--
+  (function ($) {
+
+    var $tabsContainer= $('.tabs-container');
+
+    $tabsContainer.scrollToFixed({
+      marginTop: 42,
+      preFixed: function () {
+        $tabsContainer.addClass('stuck');
+      },
+      postFixed: function () {
+        $tabsContainer.removeClass('stuck');
+      }
+    });
+  })(jQuery);
+//-->
+  </script>
+  <script type="text/javascript" src="/javascripts/tabs.js"></script>
+  <script type="text/javascript" src="/javascripts/popup.js"></script>
+  <script type="text/javascript" src="/javascripts/dropdown.js"></script>
+  <script type="text/javascript" src="/javascripts/collection-editor.js"></script>
+</body>
+</html>
+

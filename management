@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>privacy setting</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/accountsetting.css" />
+  <link rel="stylesheet" href="/stylesheets/settingcol.css" />
+  <link rel="stylesheet" href="/stylesheets/actions.css" />
+  <link rel="stylesheet" href="/stylesheets/search.css" />
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css" />
+  <link rel="stylesheet" href="/stylesheets/cards/collection.css" />
+  <link rel="stylesheet" href="/stylesheets/temp.css" />
+  <link rel="stylesheet" href="/stylesheets/cards/film.css" />
+  <link rel="stylesheet" href="/stylesheets/cards/collection.css" />
+
+
+</head>
+<body style = "background-color: rgb(247, 247, 247);">
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover">discover</a></li>
+      |
+      <li><a href="/discover/film">film</a></li>
+      |
+      <li><a href="/discover/music">music</a></li>
+      |
+      <li><a href="/discover/book">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management">manage</a></li>
+          <li><a href="/login">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+
+    
+    <div class="setting-content content tabbed" style="width: 900px;">
+
+      <div class= "setting-col"> 
+        <ul class="tabs">
+          <li>
+            <a href="javascript:void(0)" data-tab-for="people" class="tab-selected tab-item">
+              <button class = "setting-btn">people</button>
+            </a>  
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-tab-for="collection" class=" tab-item">
+              <button class = "setting-btn">collection</button>
+            </a>  
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-tab-for="review" class=" tab-item">
+              <button class = "setting-btn">critique & review</button>
+            </a>  
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-tab-for="question" class="  tab-item">
+              <button class = "setting-btn">question</button>
+            </a>  
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-tab-for="account" class=" tab-item">
+              <button class = "setting-btn">account setting</button>
+            </a>  
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-tab-for="privacy" class="tab-item">
+              <button class = "setting-btn">privacy setting</button>
+            </a> 
+          </li>
+          <li><a><button class = "setting-btn">help</button></a></li>
+        </ul>
+      </div>
+
+
+
+      <!-- account setting -->
+      <div class= "setting-detail account-detail tab-content" data-tab-name="account">
+        <ul>
+          <li class="normal-li">
+            <label class="edit-lab">first name</label>
+            <input>
+            <div></div>
+            
+          </li>
+
+          <li class="normal-li">
+            <label class="edit-lab">last name</label>
+            <input>
+            <div></div>
+            
+          </li>
+
+          <li class="normal-li">
+            <label class="edit-lab">username</label>
+            <input>
+            <div><a href="">check availability</a></div>
+            
+          </li>
+
+          <li class="normal-li">
+            <label class="edit-lab">password</label>
+            <input type="password">
+            <div></div>
+            
+          </li>
+
+          <li class="profile-li" style="min-height: 32px;">
+            <label class="edit-lab">profile picture</label>
+            <div>
+              <button class="edit-btn">change picture</button>
+              <div><img src="images/avatars/8.png"></div> 
+            </div>         
+          </li>
+
+        </ul>
+
+
+
+        <div class = "save-reset">
+          <div>
+            <button class="sr-btn" style="margin-right: 30px;">save</button> 
+            <button class="sr-btn" style="margin-left: 30px;">reset</button>
+          </div>
+              
+        </div>
+
+          
+      </div>
+
+
+      
+
+ 
+      
+
+
+
+      <div class= "setting-detail privacy-detail tab-content" data-tab-name="privacy">
+        <ul>
+          <li class="normal-li">
+            <label class="edit-lab">who can see my profile?</label>
+            <div class= "dropdown">
+
+              <div class = "choose">
+                <div></div>
+                <i class="fa fa-caret-down fa-2x dropdown-icon"></i>
+              </div>
+
+              <ul style = "z-index: 1"> 
+                <li class="privacy-type">everyone</li> 
+                <li class="privacy-type">only my friends</li> 
+              </ul> 
+            </div>
+          </li>
+
+          <li class="normal-li">
+            <label class="edit-lab">who can see my collections?</label>
+            <div class= "dropdown">
+
+              <div class = "choose">
+                <div></div>
+                <i class="fa fa-caret-down fa-2x dropdown-icon"></i>
+              </div>
+
+              <ul> 
+                <li class="privacy-type">everyone</li> 
+                <li class="privacy-type">only my friends</li> 
+              </ul> 
+            </div>
+          </li>
+
+        </ul>
+
+
+
+        <div class = "save-reset">
+          <div>
+            <button class="sr-btn" style="margin-right: 30px;">save</button> 
+            <button class="sr-btn" style="margin-left: 30px;">reset</button>
+          </div>
+              
+        </div>
+
+      </div>
+
+
+            <!-- manage people -->
+      <div class="manage-people setting-detail tab-content" data-tab-name="people">
+        <div class="search-title"><h1>- people -</h1></div>
+        <section class="people-type">
+          <div class="title-filter">
+            <h2>my friends <span>(201)</span></h2>
+          </div>
+          <div class="people-list">
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+          </div>
+          <div class="manage-more"><a class="more-link"href="">[more]</a></div>
+        </section>
+
+
+        <section class="people-type">
+          <div class="title-filter">
+            <h2>people I’m following <span>(33)</span></h2>
+          </div>
+          <div class="people-list">
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+            
+          </div>
+          <div class="manage-more"><a class="more-link"href="">[more]</a></div>
+        </section>
+
+
+        <section class="people-type">
+          <div class="title-filter">
+            <h2>my followers <span>(33)</span></h2>
+          </div>
+          <div class="people-list">
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Paris, France</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Paris, France</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Paris, France</p>
+              </div>
+            </div>
+            
+            <div class="people-result">
+              <div class= "img-button">
+                <img src="images/avatars/2.png" alt="" class="avatar"/>
+                <button>remove friend</button>
+              </div>
+              <div class= "people-info">
+                <h3>Roy Jones</h3>
+                <p>12 mutual friends</p>
+                <p>24 followers</p>
+                <p>Paris, France</p>
+              </div>
+            </div>
+            
+          </div>
+          <div class="manage-more"><a class="more-link"href="">[more]</a></div>
+        </section>
+        
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- manage collection -->
+      <div class="manage-collection setting-detail tab-content" data-tab-name="collection">
+        <div class="search-title"><h1>- collection -</h1></div>
+        <section class="collection-type">
+          <div class="title-filter">
+            <h2>collections I’m following <span>(34)</span></h2>
+            
+            <ul class="type-filter">
+              <li><a href="">all</a></li>
+              <li><a href="">film</a></li>
+              <li><a href="">music</a></li>
+              <li><a href="">book</a></li>
+            </ul>
+            
+          </div>
+          <div class="collection-list">
+            
+            <div class="one-collection">
+              <div class="collection-card small">
+                <div class="content">
+                  <img class="poster" src="/images/films/3.png" alt="">
+                  <div class="title">My Favorite French Films</div>
+                </div>
+              </div>
+
+              <div class="collection-action">
+                <button>unfollow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="one-collection">
+              <div class="collection-card small">
+                <div class="content">
+                  <img class="poster" src="/images/films/3.png" alt="">
+                  <div class="title">My Favorite French Films</div>
+                </div>
+              </div>
+
+              <div class="collection-action">
+                <button>unfollow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="one-collection">
+              <div class="collection-card small">
+                <div class="content">
+                  <img class="poster" src="/images/films/3.png" alt="">
+                  <div class="title">My Favorite French Films</div>
+                </div>
+              </div>
+
+              <div class="collection-action">
+                <button>unfollow</button>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa checked"></i></li>
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="manage-more"><a class="more-link"href="">[more]</a></div>
+        </section>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- manage critique&reviews -->
+      <div class="manage-review setting-detail tab-content" data-tab-name="review">
+        <div class="search-title"><h1>- critique & reviews -</h1></div>
+        <section class="review-type">
+          <div class="title-filter">
+            <h2>my critique <span>(34)</span></h2>    
+            <ul class="type-filter">
+              <li><a href="">all</a></li>
+              <li><a href="">film</a></li>
+              <li><a href="">music</a></li>
+              <li><a href="">book</a></li>
+            </ul>           
+          </div>
+
+          <div class="review-list">
+            
+            <div class="one-review">
+              <div class="film-card mini">
+                <img class="poster" src="/images/films/2.png" alt="">
+              </div>
+
+              <div class="review-detail">
+                <h1><a class="review-title" href="">400 Blows / Les Quatre Cents Coups</a><a href="" class="edit-btn">edit</a></h1>
+                <p><a href="">Weichen Zhu</a>: “One of the best films I’ve ever watched. Truly genius.”</p>
+                <div class="info-sepa"></div>
+                <div class="like-share">
+                  <span class="likeinfo">12M likes | 500 collects</span>
+                  <div>
+                    <ul class="actions">
+                      <li><i class="fa fa-share-alt"></i></li>
+                      <li><i class="like-btn fa "></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="one-review">
+              <div class="film-card mini">
+                <img class="poster" src="/images/films/2.png" alt="">
+              </div>
+
+              <div class="review-detail">
+                <h1><a class="review-title" href="">400 Blows / Les Quatre Cents Coups</a><a href="" class="edit-btn">edit</a></h1>
+                <p><a href="">Weichen Zhu</a>: “One of the best films I’ve ever watched. Truly genius.”</p>
+                <div class="info-sepa"></div>
+                <div class="like-share">
+                  <span class="likeinfo">12M likes | 500 collects</span>
+                  <div>
+                    <ul class="actions">
+                      <li><i class="fa fa-share-alt"></i></li>
+                      <li><i class="like-btn fa "></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="manage-more"><a class="more-link"href="">[more]</a></div>
+        </section>
+
+
+
+
+        <section class="review-type">
+          <div class="title-filter">
+            <h2>my reviews <span>(34)</span></h2>    
+            <ul class="type-filter">
+              <li><a href="">all</a></li>
+              <li><a href="">film</a></li>
+              <li><a href="">music</a></li>
+              <li><a href="">book</a></li>
+            </ul>           
+          </div>
+
+          <div class="review-list">
+            
+            <div class="one-review">
+              <div class="film-card supersmall">
+                <img class="poster" src="/images/films/2.png" alt="">
+              </div>
+
+              <div class="review-detail">
+                <h1><a class="review-title" href="">400 Blows / Les Quatre Cents Coups</a><a href="" class="edit-btn">edit</a></h1>
+                <h2>simplicity</h2>
+                <p><a href="">Weichen Zhu</a>: “There is no question that it is extremely difficult to shoot a film with extremely low budget while creating breathtaking imagines that are beyond the imagination of the audience...”<a href="" class="more-link">[more]</a></p>
+                <div class="info-sepa"></div>
+                <div class="like-share">
+                  <span class="likeinfo">12M likes | 500 collects</span>
+                  <div>
+                    <ul class="actions">
+                      <li><i class="fa fa-share-alt"></i></li>
+                      <li><i class="like-btn fa "></i></li>
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="one-review">
+              <div class="film-card supersmall">
+                <img class="poster" src="/images/films/2.png" alt="">
+              </div>
+
+              <div class="review-detail">
+                <h1><a class="review-title" href="">400 Blows / Les Quatre Cents Coups</a><a href="" class="edit-btn">edit</a></h1>
+                <h2>simplicity</h2>
+                <p><a href="">Weichen Zhu</a>: “There is no question that it is extremely difficult to shoot a film with extremely low budget while creating breathtaking imagines that are beyond the imagination of the audience...”<a href="" class="more-link">[more]</a></p>
+                <div class="info-sepa"></div>
+                <div class="like-share">
+                  <span class="likeinfo">12M likes | 500 collects</span>
+                  <div>
+                    <ul class="actions">
+                      <li><i class="fa fa-share-alt"></i></li>
+                      <li><i class="like-btn fa "></i></li>
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+          <div class="manage-more"><a class="more-link"href="">[more]</a></div>
+        </section>
+      </div>
+
+
+
+
+
+
+
+
+
+      <!-- manage question -->
+      <div class="manage-question setting-detail tab-content" data-tab-name="question">
+        <div class="search-title"><h1>- question -</h1></div>
+        <section class="question-type">
+          <div class="title-filter">
+            <h2>questions I asked <span>(34)</span></h2>    
+            <ul class="type-filter">
+              <li><a href="">all</a></li>
+              <li><a href="">film</a></li>
+              <li><a href="">music</a></li>
+              <li><a href="">book</a></li>
+            </ul>           
+          </div>
+
+
+          
+          <div class="one-review">
+            <div class="film-card supersmall">
+              <img class="poster" src="/images/films/2.png" alt="">
+            </div>
+
+            <div class="review-detail">
+              <h1><a class="review-title" href="">400 Blows / Les Quatre Cents Coups</a><a href="" class="edit-btn">edit</a></h1>
+              <h2>Why is 400 Blows regarded as such an important movie in the history of cinema?</h2>
+              <p><a href="">Weichen Zhu</a>: “There is no question that it is extremely difficult to shoot a film with extremely low budget while creating breathtaking imagines that are beyond the imagination of the audience...”<a href="" class="more-link">[more]</a></p>
+              <div class="info-sepa"></div>
+              <div class="like-share">
+                <span class="likeinfo">12M likes | 500 collects</span>
+                <div>
+                  <ul class="actions">
+                    <li><i class="fa fa-share-alt"></i></li>
+                    <li><i class="like-btn fa "></i></li>
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="one-review">
+            <div class="film-card supersmall">
+              <img class="poster" src="/images/films/2.png" alt="">
+            </div>
+
+            <div class="review-detail">
+              <h1><a class="review-title" href="">400 Blows / Les Quatre Cents Coups</a><a href="" class="edit-btn">edit</a></h1>
+              <h2>Why is 400 Blows regarded as such an important movie in the history of cinema?</h2>
+              <p><a href="">Weichen Zhu</a>: “There is no question that it is extremely difficult to shoot a film with extremely low budget while creating breathtaking imagines that are beyond the imagination of the audience...”<a href="" class="more-link">[more]</a></p>
+              <div class="info-sepa"></div>
+              <div class="like-share">
+                <span class="likeinfo">12M likes | 500 collects</span>
+                <div>
+                  <ul class="actions">
+                    <li><i class="fa fa-share-alt"></i></li>
+                    <li><i class="like-btn fa "></i></li>
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="manage-more"><a class="more-link"href="">[more]</a></div>
+
+        </section>
+      </div>
+
+
+
+
+
+
+    </div>
+    
+  </main>
+
+
+  <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript">
+
+  
+
+  $(".dropdown > .choose").click(function(){ 
+    
+    var ul = $(this).siblings("ul"); 
+    if(ul.css("display")=="none"){ 
+      ul.slideDown("fast"); 
+    }else{ 
+      ul.slideUp("fast"); 
+    } 
+  }); 
+
+
+  $(".dropdown > ul > li").click(function(){ 
+    var txt = $(this).text(); 
+    var drop = $(this).parent("ul").siblings(".choose").children("div");
+    $(drop).html(txt); 
+    $(".dropdown > ul").hide(); 
+  }); 
+
+  </script>
+  <script type="text/javascript" src="/javascripts/tabs.js"></script>
+</body>
+</html>

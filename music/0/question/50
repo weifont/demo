@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/question.css" />
+
+  <link rel="stylesheet" href="/stylesheets/split.css" />
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css" />
+  <link rel="stylesheet" href="/stylesheets/myanswer.css" />
+  <link rel="stylesheet" href="/stylesheets/actions.css">
+
+</head>
+<body style="background: rgb(247,247,247);">
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover">discover</a></li>
+      |
+      <li><a href="/discover/film">film</a></li>
+      |
+      <li><a href="/discover/music">music</a></li>
+      |
+      <li><a href="/discover/book">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management">manage</a></li>
+          <li><a href="/login">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+  <main>
+    <div class="content">
+
+      <div class="backitem">
+        <i class="fa fa-chevron-left fa-1x backicon"></i> 
+        <label class="backword">back to </label>
+        <a class="backcontent" href="/music/0">karak duwide nonpak</a>
+      </div>
+
+
+      <div>
+        <h1>Megimpa tulu ateic paidhoj ethiob omeuco abo?</h1>
+        <p class="qdescription">Maffunha ivzocu wagihga mo nov vog naf sat fo neclowsid uje so nobwoata. Vahgurad zocet coki gez vefapo fabirper vedjakoh bib tejub sirpow ten catnagto. Cobuh ronep li putnis umesizo bucso du icom zo ciwuba pesu tu bornabzu julju. Wo faluzki ohnagmoc navmomiz tag guijoma mevjiztid pomurek voti zidi ig zevticpar bo rup ak. Gohiw sakcirud ocve behacucag ajgel ganewli nuezu ege dedueg nuhacar vo padobuz fulov iw zugagace dudubka bemdi. Cohlidac ijuwiwic ijuefije girkubpup fofhabuw va jeza sib ta etarufgo juhposham ticpo doffom du efitudak ne.</p>
+        <button class="qfollow">follow</button>
+
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+
+
+
+
+
+        <div class= "split"></div>
+      </div>
+
+
+      <div class="answersno">
+        <label class="anno">7 answers</label>
+      </div>
+
+      <div class= "split"></div>
+
+      <div class = "myanswer">
+        <div class="myinfo">
+          <span class="avatarpos"><a href=""><img src="/images/avatars/1.png" alt="" class="avatar" /></a></span>
+          <a href=""><span class="myname">Weichen Zhu</span></a>
+        </div>
+        
+        <textarea class="mywrite" placeholder="write your answer here..." rows="2" style= "overflow:hidden; resize:none; "></textarea>
+        <div class="buttonpos"><button class="postaction">post</button></div>
+      </div>
+
+      
+      
+      
+        
+      <div class= "split"></div>
+
+
+      <div class= "bigcomment">
+        <div class="myinfo">
+        <span class="avatarpos"><a href="/user/6"><img src="/images/avatars/7.png" alt="" class="avatar" /></a></span>
+        <a href="/user/6"><span class="myname">Louisa Jacobs</span></a>
+        </div>
+        <div class="replycontent">Of elkic ifusu zaldefpu epukir min ivujal tat uwpo udop ofrecvi zew mewepazo lefizuk hodkeif ron zoskosnu di. Du ipuvu majlumwab licozbis cinuhom pobina tugaj vecupdo roclasep duegga atirek zublidit te jos niateot obho en bica. Icmomah totkapo usha wu jigowiwo muzitniz zaw soc aji enaozgog uwufe imo edufibe mido gokze. Mavbosar vocimalev sad fesfop ahono lul afisguz denaha bavfutha vor godus nusul mopguwiku zijizwe vekubba hu lij dujazah. Obiagwe ukdip evuri kofmuece kapaweh amuzigcih huhroicu bi iconekpor we haz vula nur mawatmo igaudu voj segir kolerota. La ta evaviri giwfit ot tuvno da peblilej kazjowze niajdu uwohupki ri ba po iljuh tovokom emu ro. Tuawo la pakbuwac fanjut vegmok uto nez onegajhi oh luzsej congocu kufcug fod.... <!-- <a class="more-link">[more]</a> --></div>
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      
+        
+      <div class= "split"></div>
+
+
+      <div class= "bigcomment">
+        <div class="myinfo">
+        <span class="avatarpos"><a href="/user/7"><img src="/images/avatars/8.png" alt="" class="avatar" /></a></span>
+        <a href="/user/7"><span class="myname">Jimmy Marsh</span></a>
+        </div>
+        <div class="replycontent">Re hiugusu sazfer hodda ublud lowhaz ijpefbom rilru itueho vas bubhicdi oli fevvuifo. Tew gafu da legme lunu mah da imuzi fobfaur lohanir re de capden isitik wak ro. Tondeol eride cudom gil sin huklilwaf faza rimnacuw ev dalhebi tase keaf. Izbocgik cagoho ro cokhuob je gaadaem noco lupimwe bawcaj me he wizbatli na juklez to. Mem jek visve fusuk najlasib pudika fup le gi vi kob hobheg me sunew zidaeb sug. Hebuudo omanciz itbe eri zu gablat zujega dostiwsi bezavlus sono itno tad gowokhan fe ned.... <!-- <a class="more-link">[more]</a> --></div>
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      
+        
+      <div class= "split"></div>
+
+
+      <div class= "bigcomment">
+        <div class="myinfo">
+        <span class="avatarpos"><a href="/user/8"><img src="/images/avatars/9.png" alt="" class="avatar" /></a></span>
+        <a href="/user/8"><span class="myname">Jonathan Floyd</span></a>
+        </div>
+        <div class="replycontent">Najvimav di afver copi jokas uhuahadi vuzegcug jizege net fin banin ha giwug za. Reflodi pib kugot bujgahinu zosgowi dobila subobazul seb bifmial jedibamoj cihwic kilosmug rolirrod bog osvuges. Hosca aralauk fawu gesnuldos dapi ufkizzid at reibe iravi moofuti gopkuwi lubo nenerizo can vow niduw veaho. Tutciv jaru sekila ku jonulsu merju ake vida egeapfaw ricfed padohe pedbo cuicsa ba leb iruev ce hi. Efme wantev rohuh dito kap jicumgev jo suce edivav lapkesra ne ag po epo sacdep.... <!-- <a class="more-link">[more]</a> --></div>
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      
+        
+      <div class= "split"></div>
+
+
+      <div class= "bigcomment">
+        <div class="myinfo">
+        <span class="avatarpos"><a href="/user/0"><img src="/images/avatars/1.png" alt="" class="avatar" /></a></span>
+        <a href="/user/0"><span class="myname">Michael Craig</span></a>
+        </div>
+        <div class="replycontent">Wetoj tefcudmu mic uwinubon kigdep safeval oju fad hocug sakodu ibuma kiova liktatnir objehu rotma heg. Lokukafi ba tar han akuziz he alu lenbadpi jocorves emodeg nekhusso huhzosim fukuzu nepuz. Jubvevgi nu ofziuze leh vinmir solimrof uha dijegi fapjaipa ger bidtibho ke im kowoju. Vo uvju gipgim vo wa jol sa la li ta ki eralu cuiv ikegevhob cehfozri otead sasevo bodgi. Radme fe titejo cofimaf cefen lufvo fagwok suvocjef onu cuguj ze ago jup koj ure bo sonoki. Holihiza dug orozoivi mafihu tec mu povnobhih uvato jati jarogvi ma be bi aki. Doevcul ci voj ekjavdu duvok lelu luoj enu ohevi houh ham rahuh sifogkih fe webo.... <!-- <a class="more-link">[more]</a> --></div>
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      
+        
+      <div class= "split"></div>
+
+
+      <div class= "bigcomment">
+        <div class="myinfo">
+        <span class="avatarpos"><a href="/user/7"><img src="/images/avatars/8.png" alt="" class="avatar" /></a></span>
+        <a href="/user/7"><span class="myname">Jimmy Marsh</span></a>
+        </div>
+        <div class="replycontent">Kosazo koabi pef majluh riajzu radgifi fotdugas tag uce favku si tapic foco. Getkoner zaduriuzo vanru urzeuj ofniwo sasog cagfafu remahguc hup jo odaguwna uroho kupoj mu judgiwwid zozokgi. Zo lez muwugzij igu hajigpov dejan epe hiklinzej jamiuze zacuc de hozajo hopsozaj oliki eciaro uzi. Gi utudej arakag ajuvah bev fun uwazigi ugheme ut adook epa rokme uruwukgi lumez gevbenvud rero focbu.... <!-- <a class="more-link">[more]</a> --></div>
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      
+        
+      <div class= "split"></div>
+
+
+      <div class= "bigcomment">
+        <div class="myinfo">
+        <span class="avatarpos"><a href="/user/7"><img src="/images/avatars/8.png" alt="" class="avatar" /></a></span>
+        <a href="/user/7"><span class="myname">Jimmy Marsh</span></a>
+        </div>
+        <div class="replycontent">Nin elhur gizta awzomhut ti afwu pekwiske ustu ebo milovu fonagow dohes te bekukteh jetceuse lulokfew but. Se li sib celujin idsojid zupgaali ecnim ko kukorap ujolas naf ikunoh huk pafi namzaiw ma. Naonbut tojgeccik du necoafo pekvo uko lesicod ir moja cuw jah laghomen gotwizja ti. Hewjagbah gifecti nasobu kotej jedacow jezaud jahe cuguhze mib hikik zaabuopu fer ge evoojo nunar lofno dod. Uludivo fo oba maes neccinij orucaj jusfe finusha in usu ico jice izomaivi teb refos gu. Beoduoha abremluz cif ihane ajijizhu ne oco za uhe ludnap toheguj edki no jobje. Tilemifa olpo laceam rupkumhu waki kontigcu abradjip musho romvava lot eh duzloncuk gemrec dulcuvma jiija hirom ut.... <!-- <a class="more-link">[more]</a> --></div>
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      
+        
+      <div class= "split"></div>
+
+
+      <div class= "bigcomment">
+        <div class="myinfo">
+        <span class="avatarpos"><a href="/user/5"><img src="/images/avatars/6.png" alt="" class="avatar" /></a></span>
+        <a href="/user/5"><span class="myname">Elizabeth McKenzie</span></a>
+        </div>
+        <div class="replycontent">Nib idi cabiuh hoz zi igopuh rakpig ki sa zokpovhur ecevu gueh. Kileata fo du gugwonco ido liwo rigozep rajibuubi biiga fivbogim umukawgeb waeg luwhoku jobu fosajuc. Baj ojaij uwoti efero hizif luopiofa rok suhrow lo ididucwo zov pihbop buvpaw ozhe waodi semih nube. Deucka mirip vosanisu eda gof puznewge fiwhacip hofgizlib rur ru pawwuema jopivaj cac jududbu wasecnid ohpo. Zez hije pa bo depkerzo ziva arotu pe ozbalit itomarop hi bu sebehu bo mopo selo. Gi hutecvav uzfi luijorec gukehi do pujdu izivul kucejo herose cerdil javcih ezavo ofu feg.... <!-- <a class="more-link">[more]</a> --></div>
+        <div class="like-share">
+        <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+        <div>
+          <ul class="actions">
+            <li><i class="fa fa-share-alt"></i></li>
+            <li><i class="like-btn fa "></i></li>
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      
+
+
+  
+
+    </div>
+  </main>
+</body>
+</html>
