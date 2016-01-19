@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Picassonian</title>
+  <link rel="stylesheet" href="/bower_components/tacit/tacit.min.css" />
+  <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript">
+    //<!--
+    $(function () {
+      var ua = navigator.userAgent.toLowerCase();
+      var isBrowerSupported = ua.indexOf('chrome') >= 0 || ua.indexOf('firefox') >= 0;
+      var $bWarning = $('#browser-warning');
+      var $demoLink = $('#demo-link');
+      
+      if (isBrowerSupported) {
+        $bWarning.hide();
+      }
+      else {
+        $demoLink.addClass('disabled');
+      }
+      
+      $demoLink.click(function () {
+        return isBrowerSupported; 
+      });
+    });
+    //-->
+  </script>
+  <style>
+    a.disabled
+    {
+      color: #B3B3B3 !important;
+    }
+    
+    #browser-warning
+    {
+      line-height: 24px;
+    }
+    
+    #browser-warning img
+    {
+      width: 16px;
+    }
+    .small { font-size: 14px; }
+
+  </style>
+</head>
+<body>
+  <section>
+    <header><nav><large>Picassonian</large><br />
+    <a class="small" href="mailto:contact@picassonian.com">contact@picassonian.com</a></nav>
+    </header>
+    <nav>
+      <ul>
+        <li><a id="demo-link" href="login.html">Demo</a></li>
+        <li><a href="/pitchdeck.pdf">Pitch Deck</a></li>
+      </ul>
+    </nav>
+    <footer>
+      <nav>
+        <small id="browser-warning">
+          Please use the latest
+          <a href="https://www.microsoft.com/en-us/windows/microsoft-edge"><img src="/images/edge.png" /> Edge</a>,
+          <a href="https://www.google.com/chrome/"><img src="/images/chrome.png" /> Chrome</a> or
+          <a href="https://www.mozilla.org/en-US/firefox/"><img src="/images/firefox.png" /> Firefox</a> to view the demo.</small>
+      </nav>
+      <nav class="small">want to be one of our first users?
+      <a class="small" href="https://docs.google.com/forms/d/19HRY6WgbfZLNzxZbnDZngZgczhJ9AIOaXbY1fMPaJxE/viewform">subscribe here</a></nav>
+    </footer>
+  </section>
+</body>
+</html>

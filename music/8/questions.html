@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>more question</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/actions.css" />
+  <link rel="stylesheet" href="/stylesheets/morequestion.css" />
+  <link rel="stylesheet" href="/stylesheets/morecommon.css" />
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css" />
+  <link rel="stylesheet" href="/stylesheets/film.css" />
+  <link rel="stylesheet" href="/stylesheets/works.css">
+
+</head>
+<body>
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover.html">discover</a></li>
+      |
+      <li><a href="/discover/film.html">film</a></li>
+      |
+      <li><a href="/discover/music.html">music</a></li>
+      |
+      <li><a href="/discover/book.html">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1.html"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management.html">manage</a></li>
+          <li><a href="/login.html">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="content">
+      <h1>all questions about <a href="/music/8.html">muzu si seku</a> </h1>
+
+      <div class="question-view">
+        <section class="questions">
+          <div class="title-btn">
+            <h2 class="title">questions <span>(7 questions)</span></h2>
+            <div class="add-btn">
+              <a class="more-link" href=""><i class="fa fa-plus addicon"></i><div>ask a question</div></a>
+            </div>
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/music/8/question/18.html">Nigedi wegesig alpo acfe ki kos unipim?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/3.html">Matthew Jensen: </a> 
+              <a class="non-text" href="/music/8/question/18.html">Wo cehtat hu fahop sufwu vewifha lauvato bof willuv zit rigwotave huz. Wu tit hevmitun wuk hazgidsa tafsu asahas nik kasujhez zekumle tisasjon kawcohnat razze iseju. Alizhe darijre um rokpipme wajzicwet sikuzre fidis etalihoj delhi sobiwaf wedij guzzi het aveav san rambisro. ...</a>  
+              <a class="more-link" href="/music/8/question/18.html">[8 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/music/8/question/28.html">Va caf beduwoguv bu odcev feen wipubu?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/4.html">Etta Bowen: </a> 
+              <a class="non-text" href="/music/8/question/28.html">Rum volku com ub lu is zujnibo we feh mubiwer leacioco hejogonu sa ogamunlu rob ihwegni. Roz jezicbo kir jujga lincoba tiheofe cawzabkal ki su go ped obaokuda. Hi mestonnu toboz ubosew simgos neiha abekuf totge tohsom ovber gerducco sec avvid luk lepliz ivvief mecuk. Waiju hawnaci wohpaves summovmad unci hew muj rihudwof zuwemup koltiga asjohe kajsad melo pahzowopa din. Zevroc kaj nipaf faadobi eg ro hagito hu zusgid hujurgu milhe eheza raf fusa li be. ...</a>  
+              <a class="more-link" href="/music/8/question/28.html">[5 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/music/8/question/48.html">Ze mukejo zop opeaz ega abivehsa mi?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/0.html">Adele Patterson: </a> 
+              <a class="non-text" href="/music/8/question/48.html">Jukcapit obuvob himje ri virbij gozmi ho pololiko wiperba pujdissof raki lek ac omuziz cun tin salufa. Cuvi wami teh goccizad ritet ebowuj had fizebba mofdu joguj negcas laz uv vefjuc go jugetoh dumvogo. Jalo finelo cudegana ni modid sibki pihcif ajehi ventav kag sot geujoc agewe jigor gidcu gir diuw sedacibog. ...</a>  
+              <a class="more-link" href="/music/8/question/48.html">[8 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/music/8/question/53.html">Cuuflaf simiihe ituejokoj wag vozer fikage fepip?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/6.html">Patrick Guerrero: </a> 
+              <a class="non-text" href="/music/8/question/53.html">Fedabze wavezud jehah jupfontuj pi daruwce oczidze liz ziacagep zupdubrud ini bas puh opeciiw todri hajwummu ce nosipseg. Nuemwem devbo toucma va zik poacufi rumilke ledo ure vir lisgaw podsof lov dit il opha wakbu ofeowimu. Puamsek perpacig wagbekje wi doseg pasat jultiv mamikibu puwu ohirhu bohfar masjuz sudujmiv udmiec ob tifut atcafibi foehvu. Cawwunkut ohmernu hiw cev vi sek opa pib latle timacaci ribup pafutu ivriwtej sukbu ipo jipuzin pik omaji. ...</a>  
+              <a class="more-link" href="/music/8/question/53.html">[7 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/music/8/question/56.html">Go ce wu nodeeg isefedli fihciko ok?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/5.html">Myrtie Klein: </a> 
+              <a class="non-text" href="/music/8/question/56.html">Fomu ihose bokse tuzepir dawigvoj cowopwom vafsujne lekif lumorut ijmo conifego seikhip calmo. Lis pif karahavun ji puzicad moeba be opivaowa vekfu ra fafad wu piktobzo ze wu nucudel. Cempaiko peata hon niogeaze siel mi eje ugeof ihame mog if abapucti emo medgoko vokcumfu. Cedum wevcam ohamav cacso jifpum odakis gikulujol kadifza avu ivinuki lermum uhoresu eg devujeuka he segu lellizla herhiggi. Mi semo nojta jonluva pinfe uci je juscivu eka fa zeh fojlaf vojhoero. Su lekolros mi bufru enzi ci zofnad va vegso cilule ulotore co nemcuumi wis jazi su. Ohorga jod likgo fefod wana jurdid for mucwemgu miol of tek kehof. ...</a>  
+              <a class="more-link" href="/music/8/question/56.html">[7 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/music/8/question/71.html">Co jos ihosulci ziteh vo awe alesiepo?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/3.html">Matthew Jensen: </a> 
+              <a class="non-text" href="/music/8/question/71.html">Lofa fe imi gur cina babam ewvevew wiama hob jerum cul fovukbob ci. Joztupvo cakigosen ca is je afnendi linel izuke hu jobhicla ta pi sanaw umkeen ug hawkauka olnanuv. Umosuoj ikanocaf tiovewo kib tun diz ifogol nizakilu ho fi ofu mumilibib goobzo. ...</a>  
+              <a class="more-link" href="/music/8/question/71.html">[2 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/music/8/question/86.html">Nivu ji jiano gajevu zupedejuf bej piseb?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/1.html">Francis Martin: </a> 
+              <a class="non-text" href="/music/8/question/86.html">Jo vizhu temoifi wad menlosu mina lepoda vul anmim pimiubi coja upouruiv oda. Gi ozman fu pud cekesa witnohis opufacrik rif kano mabnuj rud va gar ro. Dosa felgo haczam bitegi luvace voz kuj pusugut lupurodo zuzmablo wademu lof nurbu urahe. Zem gaiwata usgajnas rol opwu nigewado luwvo mepmo patic gakzewcim waewke keksik pelog serehvir. Kisithow ta na tigu wezisi zimejto zuwutoc pa afo ra wuodi zo joh saujoki. Baj pumi pemjo halejriv honuuk rakmi imiiguba he okguz duscethoh jamkazer saev uk ula rozeh owoka nu obule. Ta buponhac majduf fo agune pevezu soka moet ciezuor fammu to sica uz ka. ...</a>  
+              <a class="more-link" href="/music/8/question/86.html">[9 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+
+        </section>
+
+
+      </div>
+
+
+      <!-- <div class="change-page">
+        <ul>
+          <li data-tab-for="pageone" class="tab-selected tab-item top"><a  href="javascript:void(0)">1</a></li>
+          <li data-tab-for="pagetwo" class=" tab-item top"><a  href="javascript:void(0)">2</a></li>
+          <li><a href="">3</a></li>
+          <li><a href="">4</a></li>
+          <li><a href="">5</a></li>
+          <li><a href="">6</a></li>
+          <li><a href="">7</a></li>
+          <li><a href="">8</a></li>
+          <li><a href="">9</a></li>
+          <li><a href="">10</a></li>
+        </ul>
+      </div> -->
+
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>more reviews</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/actions.css" />
+  <link rel="stylesheet" href="/stylesheets/morereview.css" />
+  <link rel="stylesheet" href="/stylesheets/morecommon.css" />
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css" />
+  <link rel="stylesheet" href="/stylesheets/film.css" />
+  <link rel="stylesheet" href="/stylesheets/works.css">
+
+</head>
+<body>
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover.html">discover</a></li>
+      |
+      <li><a href="/discover/film.html">film</a></li>
+      |
+      <li><a href="/discover/music.html">music</a></li>
+      |
+      <li><a href="/discover/book.html">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1.html"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management.html">manage</a></li>
+          <li><a href="/login.html">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="content">
+      <h1>all reviews about <a href="/book/1">terri ji bov</a> </h1>
+
+      <div class="review-view">
+        <section class="reviews">
+          <div class="title-btn">
+            <h2 class="title">reviews <span>(6 reviews)</span></h2>
+            <div class="add-btn"><a class="more-link" href=""><i class="fa fa-plus addicon"></i><div>write a review</div></a></div>
+          </div>
+
+          
+
+          <div class="review">
+            <a class="non-text" href="/book/1/review/1.html"><h3>Gur hir acmov eliho gohwumu agaopovus laj no adesun ursaele upvo bazsom sasiro ejivujgid lo vog asoehi bujohe.</h3></a>
+            <p class="info">
+              <a href="/user/6.html">Patrick Guerrero </a>
+            </p>
+
+            <p><a href="/book/1/review/1.html" class="non-text">Viz te wagnakca pobzag fohat lakaw vulec pe giptiok akraca nulnarkur kinen cuvari apevaj wog pesewira ma. Mimpaces hef ukucappeb miawne ap fegmacfih kirimewo vi fo kilhun owato nug zuc peomefam. Girvein vajevnu husana mujagi tobu ifoaswec nep ir nir dasus embom zakifob iju herfi zeor ir nubac. Zufo najtac up ewuevaper gejkih gemeva wusjuljis tubcaj lazwensuj tovozu ubiset bafemoz tutugep dipioh uzu ujilafif me lud....</a>  <!-- <a class="more-link">[more]</a> --></p>
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="review">
+            <a class="non-text" href="/book/1/review/2.html"><h3>Vutij dajkaf ejaka gev orko dustuhfe dizi dom velokda ceevanob nirennu cozebo mitza balritban lu jor napu.</h3></a>
+            <p class="info">
+              <a href="/user/2.html">Jeremy McBride </a>
+            </p>
+
+            <p><a href="/book/1/review/2.html" class="non-text">Haco cezabe reto wotam womo vofve relugo kojehko tavalha nofgif bujfizje ro vuckipop doesoce hojpeta bivfub. Baukuca cetzaos poakedo ke wa wefderaci umbimul lecewsa umagunen hi fuw cijrosup juksi hop oli kujmi bofidemo. Ukataron zul hiw vat baretnu nivum abaguga za epo watido awiura ni pefep fivawlev....</a>  <!-- <a class="more-link">[more]</a> --></p>
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="review">
+            <a class="non-text" href="/book/1/review/22.html"><h3>Fu ufu buk nafa sohasset le ece ma abfimi dehmurpip duftad ifaz ituburla ine dituuvo bibose kocwer.</h3></a>
+            <p class="info">
+              <a href="/user/8.html">Stanley Snyder </a>
+            </p>
+
+            <p><a href="/book/1/review/22.html" class="non-text">Uteribgis sowu fipbi cot kicsajmod manin vosawto ome adojuf vidsu loim okunu pe. Ube atog ellag itenoh ura kubijtef so tulpuce sibta ulfinedo tolnu wibvo por pom vob. Pijjep fovubis bo jus fi zaaf ono po rirheeh tatiuj tarbotew gakdiw udihjev esesupe kuk. Dejmon es re wiagamoc wow dudliub gis lujar osewuk pa tisporzo fo ziwzek tarovi paloafe lilo omseh. Ijwanvam keter nak ub wiza ho gi wavcomos hibe caw meghepov ganru zegjozru forafis. Wa wa apojufib ga sermilmen dezjam dog uc fabnit hekhedod fi lu kucunek nocotdo dalat tec vewinew orupa. Decizroj fohdahkec aju sor zegudkaw ku aju lauf bos ohligpi vivofo ha jidcos getir jolmafhi ogole....</a>  <!-- <a class="more-link">[more]</a> --></p>
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="review">
+            <a class="non-text" href="/book/1/review/26.html"><h3>Ere mel zawe akoeku ahobog kuop fazobfan kugfupo kipij fafauba eplipi gatar wir ro hoh na.</h3></a>
+            <p class="info">
+              <a href="/user/7.html">Carolyn Gibbs </a>
+            </p>
+
+            <p><a href="/book/1/review/26.html" class="non-text">Bomjec eve bukzoke hik oceveznik igvu moh wam anagob lonse lake zi movlugaj. Pouz rowwo sivbuf zon vejifri ba suztu ful tovwice il metej tubef neiz avawehew jih owe. Puimmu vak zinu va pakafig uviluzweh jum lukohe herret wechi mev im vucup ew tofvasvo hih bev ra....</a>  <!-- <a class="more-link">[more]</a> --></p>
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="review">
+            <a class="non-text" href="/book/1/review/29.html"><h3>Podumah gi ejfim law toj iru rij ob voukuape sejad bithik noobu hanene fono us goc.</h3></a>
+            <p class="info">
+              <a href="/user/3.html">Matthew Jensen </a>
+            </p>
+
+            <p><a href="/book/1/review/29.html" class="non-text">Nuefvob tobsoicu vifab ugnikev bisoice od sa hihowo op cezumi zec doudinoc ubase udodaeku nos beru kakaf. Re bawemaj porbi cefap ri buwbe gedenpet vuul dab izu ivegajij rit dusaja raru du. Dowciot ef pot kov mepappo tena wigceub jehafag uk esur dipuju ihuma govdut ejrunof. Omuvonos ukpefi zum ehikin utuagru tiz am ho role ni os jeci dipu gedsutwac. Aki zalreez ogipi vosonu loril fago da ju izejouna de jod nulawi ligojo uwiwoftad konak muhoj kahoub hofhilu. Niwmelo ewapvuw za dibsamta tinmo ciobeevi gir lutla wu gubtuv jog ka gikot pu el boc umaescaz zo....</a>  <!-- <a class="more-link">[more]</a> --></p>
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="review">
+            <a class="non-text" href="/book/1/review/56.html"><h3>Mopil hinohti esemi ownomaj lufav hun kokwozone herak utaw egiko suhoc me woag motu.</h3></a>
+            <p class="info">
+              <a href="/user/8.html">Stanley Snyder </a>
+            </p>
+
+            <p><a href="/book/1/review/56.html" class="non-text">Nuv rakununo hebiw unpo goz noocuidi takwagof athazuc luwdoz daha nitecev tad ewfa nogo guwu. Vaofi les moedajih pecoron cawur diobvip zara nozwelcen udeeg ik sinukhub va ged wivruhi mozde. Linamov ilaoddi du vo lahhe hek me gogev lugfu kugiv asolinpab lod va dov jinobehub. Jiv bevifsa tagvo tipven ara az zessowen happe ajkowir guzda ge wajuiw og pamugeze evuso. Az bacut gomsopur hewun caju di inataze jahral po zuseddaj buduf savubuze. Wa feke zipwo ecbeel elepahu rov umema ke cica jotir vamlaj astogtoc is vapwu licuh siotne. Valefpit mazuli kidcup deghubnov siek iga cib femgabsib rul pif fowateh obovoj waznoar oc niwgigoc ira cewunu....</a>  <!-- <a class="more-link">[more]</a> --></p>
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+        </section>
+
+      </div>
+
+
+     <!--  <div class="change-page">
+        <ul>
+          <li data-tab-for="pageone" class="tab-selected tab-item top"><a  href="javascript:void(0)">1</a></li>
+          <li data-tab-for="pagetwo" class=" tab-item top"><a  href="javascript:void(0)">2</a></li>
+          <li><a href="">3</a></li>
+          <li><a href="">4</a></li>
+          <li><a href="">5</a></li>
+          <li><a href="">6</a></li>
+          <li><a href="">7</a></li>
+          <li><a href="">8</a></li>
+          <li><a href="">9</a></li>
+          <li><a href="">10</a></li>
+        </ul>
+      </div> -->
+
+    </div>
+
+  </main>
+
+</body>
+</html>

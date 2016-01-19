@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>more question</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/actions.css" />
+  <link rel="stylesheet" href="/stylesheets/morequestion.css" />
+  <link rel="stylesheet" href="/stylesheets/morecommon.css" />
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css" />
+  <link rel="stylesheet" href="/stylesheets/film.css" />
+  <link rel="stylesheet" href="/stylesheets/works.css">
+
+</head>
+<body>
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover.html">discover</a></li>
+      |
+      <li><a href="/discover/film.html">film</a></li>
+      |
+      <li><a href="/discover/music.html">music</a></li>
+      |
+      <li><a href="/discover/book.html">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1.html"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management.html">manage</a></li>
+          <li><a href="/login.html">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="content">
+      <h1>all questions about <a href="/film/0.html">joftate koowu tavaf</a> </h1>
+
+      <div class="question-view">
+        <section class="questions">
+          <div class="title-btn">
+            <h2 class="title">questions <span>(4 questions)</span></h2>
+            <div class="add-btn">
+              <a class="more-link" href=""><i class="fa fa-plus addicon"></i><div>ask a question</div></a>
+            </div>
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/film/0/question/24.html">Ni voca minbobun lojalpoj mibize vahol zoune?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/10.html">Hannah Cummings: </a> 
+              <a class="non-text" href="/film/0/question/24.html">Dunse zaifwof vuulili ocre koj ruvet nezoito ah hipepa zuno sof juddige sowro doledef joge. Jah wicook mu ce mecot on tucowha fezbig fugme hoigo be dogato rassum jo lez. Putiskik ev uwfuuhu kowhecpe izatow tilekaf gezotur de zom ipeazpet ek bidila lahit lipsavnej za zewfew fe. ...</a>  
+              <a class="more-link" href="/film/0/question/24.html">[7 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/film/0/question/35.html">Gec ehuz bulsaguz nu fegug onu upzap?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/8.html">Stanley Snyder: </a> 
+              <a class="non-text" href="/film/0/question/35.html">Rebgolgar gel nu tipij jelo vizepud soehiame wazduci subgucku uvitoehe tib lopovi kegva mitnuzkol rusamze enadokuc. Er mihu ugecovza bihpebno vondofvim heijided cav ju walkul zatbipbor ihifo ose weenovur towu per lukir ipoke rov. Za bos oka amapu vuibakep edwik do hubupak eb oj rippuube ehfej pucace ezpef. Mi nug cenjukir wuatjew bub pitelir zataha beg bivdi civizme cis tikhugo huwakru. ...</a>  
+              <a class="more-link" href="/film/0/question/35.html">[8 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/film/0/question/70.html">Ow reku evha hewikrec orna do kurop?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/2.html">Jeremy McBride: </a> 
+              <a class="non-text" href="/film/0/question/70.html">Rogi ba howfemu ecu tu tuwfoir ibe ujafimo ofpuril zem gewul orilon lu rumasa. Asibugup wuwi zozwofzu jajerpu zagomif per inobiho tez uwjitbo jo dutiso hedsefem zatsuk hoprimhi pewtep pofapa. Vu luw jaeg wik cuhjaje wocijuma kawvu de feugo rel egbuz luwugduv takirilu ebehizze ja mejbaz wegha. Fuzguje ge cuwsaniv ruczapi laspo jat be jejwu cila aze veridid rawoh afnu boterne mulli fodus. ...</a>  
+              <a class="more-link" href="/film/0/question/70.html">[5 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+          <div class="question">
+            <h3>
+              <a class="non-text" href="/film/0/question/77.html">Serupej to ocilec refrifet ceweome vuh gujme?</a> 
+              <button>follow</button>
+            </h3>
+            <p>
+              <a  href="/user/9.html">Johnny Allen: </a> 
+              <a class="non-text" href="/film/0/question/77.html">Locsukhof alduij muj dizor akug taj rozorma mecwozom zer enu mog bajit fezal. Ocha weczu vojgefge opiebo gado aw jewemfu saala wa ikito moez ijjak mukal gombesi uwepotu aweuva. Guzulani fagtazlog nuhaif luba lowiza gom ri touwu urjalum piso wac vohva cat icuzugesu gufvormit vu vepkacrel lemhur. Samfocu pitutte wobnusgib pu lazulu mi hafdeha fos olukuhob vew za ome he hewpabzup gir. Zipimvos ca tojhami wul koovi ihinfeh lonek tafo buhbaj zabniok jakicus ci etekirez ri. Di acuoj nighu ikuivig jegguv akvav wobiwo kemu kuje ipidi pohes ju isdeub dewde up pun lohkanka. Ivno cukulepe paco tus ehelo jelbibda hatewni hak sujejok pothopu zopzo muw nil piaba dulunihok wipkiki domiptoz. ...</a>  
+              <a class="more-link" href="/film/0/question/77.html">[5 more answers]</a>
+            </p>
+
+            
+            <div class="like-share">
+              <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+              <div>
+                <ul class="actions">
+                  <li><i class="fa fa-share-alt"></i></li>
+                  <li><i class="like-btn fa "></i></li>
+                </ul>
+              </div>
+            </div>     
+          </div>
+          
+
+        </section>
+
+
+      </div>
+
+
+      <!-- <div class="change-page">
+        <ul>
+          <li data-tab-for="pageone" class="tab-selected tab-item top"><a  href="javascript:void(0)">1</a></li>
+          <li data-tab-for="pagetwo" class=" tab-item top"><a  href="javascript:void(0)">2</a></li>
+          <li><a href="">3</a></li>
+          <li><a href="">4</a></li>
+          <li><a href="">5</a></li>
+          <li><a href="">6</a></li>
+          <li><a href="">7</a></li>
+          <li><a href="">8</a></li>
+          <li><a href="">9</a></li>
+          <li><a href="">10</a></li>
+        </ul>
+      </div> -->
+
+    </div>
+
+  </main>
+
+</body>
+</html>

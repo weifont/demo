@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>film list</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+  <link rel="stylesheet" href="/stylesheets/search.css" />
+  
+  <link rel="stylesheet" href="/stylesheets/filmlist.css" />
+  
+  <link rel="stylesheet" href="/stylesheets/discover.css" />
+  <link rel="stylesheet" href="/stylesheets/cards/film.css">
+  <link rel="stylesheet" href="/stylesheets/actions.css">
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css">
+  <link rel="stylesheet" href="/stylesheets/morecommon.css">
+  
+ 
+</head>
+<body>
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover.html">discover</a></li>
+      |
+      <li><a href="/discover/film.html">film</a></li>
+      |
+      <li><a href="/discover/music.html">music</a></li>
+      |
+      <li><a href="/discover/book.html">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1.html"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management.html">manage</a></li>
+          <li><a href="/login.html">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="content film-list" style="width: 780px;">
+      <div class="search-title"><h1>classical music</h1></div>
+      <!--<div class="type-btn">
+        <button>top classical films</button>
+        <div></div>
+        <button>friends'favorite</button>
+      </div>-->
+      
+      <section class="product-section search-section">
+        <div>
+          <div class="film-card supersmall">
+            <a href="/music/7.html"><img class="poster" src="/images/albums/8.jpg" alt=""></a>
+          </div>
+        </div>
+      
+        <div class= "recom-info search-info">
+          <h2><a href="/music/7.html">
+          cocacpah fuh helpogi
+          /
+          ღამის მთავრობა
+          </a></h2>
+          <div><h3>by <span>Larry Gonzales</span> </h3></div>
+            
+          
+          <div><h4>“Bitkutgu utubilus boc vo datbezwe icla to vasulov zawatror kec himtofdag vodziwzap.”</h4></div>
+          
+              
+          <div class="info-sepa"></div>
+          <div class="like-share" style="margin-bottom: 8px;">
+            <span class="likeinfo">63 likes | 147 collects</span>
+            <div>
+              <ul class="actions">
+                <li><i class="fa fa-diamond collecticon"></i></li>
+                <li><i class="fa fa-share-alt"></i></li>
+                <li><i class="like-btn fa"></i></li>
+              </ul>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+      
+      <section class="product-section search-section">
+        <div>
+          <div class="film-card supersmall">
+            <a href="/music/2.html"><img class="poster" src="/images/albums/3.jpg" alt=""></a>
+          </div>
+        </div>
+      
+        <div class= "recom-info search-info">
+          <h2><a href="/music/2.html">
+          ebcini mokful coja
+          /
+          ночь в улице Вязов
+          </a></h2>
+          <div><h3>by <span>Bettie Terry</span> </h3></div>
+            
+          
+          <div><h4>“Burpali ki foprew ose re ohzizij rirzel jopuvat pij ega uhezid jipidi hazuhig gehwa.”</h4></div>
+          
+              
+          <div class="info-sepa"></div>
+          <div class="like-share" style="margin-bottom: 8px;">
+            <span class="likeinfo">36 likes | 84 collects</span>
+            <div>
+              <ul class="actions">
+                <li><i class="fa fa-diamond collecticon"></i></li>
+                <li><i class="fa fa-share-alt"></i></li>
+                <li><i class="like-btn fa"></i></li>
+              </ul>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+      
+      <section class="product-section search-section">
+        <div>
+          <div class="film-card supersmall">
+            <a href="/music/1.html"><img class="poster" src="/images/albums/2.jpg" alt=""></a>
+          </div>
+        </div>
+      
+        <div class= "recom-info search-info">
+          <h2><a href="/music/1.html">
+          te zig zu
+          /
+          una noche en la calle del olmp
+          </a></h2>
+          <div><h3>by <a href='/user/7.html'>Carolyn Gibbs</a> </h3></div>
+            
+          
+          <div><h4>“Hum kepe evlu toziggof ejageldi liclugan dogije lov gusgupeh up juc wu vuufi rir cikez naassi.”</h4></div>
+          
+              
+          <div class="info-sepa"></div>
+          <div class="like-share" style="margin-bottom: 8px;">
+            <span class="likeinfo">63 likes | 147 collects</span>
+            <div>
+              <ul class="actions">
+                <li><i class="fa fa-diamond collecticon"></i></li>
+                <li><i class="fa fa-share-alt"></i></li>
+                <li><i class="like-btn fa"></i></li>
+              </ul>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+      
+      <section class="product-section search-section">
+        <div>
+          <div class="film-card supersmall">
+            <a href="/music/6.html"><img class="poster" src="/images/albums/7.jpg" alt=""></a>
+          </div>
+        </div>
+      
+        <div class= "recom-info search-info">
+          <h2><a href="/music/6.html">
+          ak wubtiiro no
+          /
+          정부의 밤
+          </a></h2>
+          <div><h3>by <span>Iva Miller</span> </h3></div>
+            
+          
+          <div><h4>“Zakbulwi webfune gozedu nuavefim ciwut za rim puh ikim gec ikube hozu to.”</h4></div>
+          
+              
+          <div class="info-sepa"></div>
+          <div class="like-share" style="margin-bottom: 8px;">
+            <span class="likeinfo">63 likes | 147 collects</span>
+            <div>
+              <ul class="actions">
+                <li><i class="fa fa-diamond collecticon"></i></li>
+                <li><i class="fa fa-share-alt"></i></li>
+                <li><i class="like-btn fa"></i></li>
+              </ul>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+      
+      <section class="product-section search-section">
+        <div>
+          <div class="film-card supersmall">
+            <a href="/music/9.html"><img class="poster" src="/images/albums/10.jpg" alt=""></a>
+          </div>
+        </div>
+      
+        <div class= "recom-info search-info">
+          <h2><a href="/music/9.html">
+          be pukgi at
+          /
+          ਪੇਸ਼ੇਵਰ ਅਨੁਭਵ
+          </a></h2>
+          <div><h3>by <a href='/user/8.html'>Stanley Snyder</a> </h3></div>
+            
+          
+          <div><h4>“Feco oda diz vegpal gic ava naf ha za neran poznok zujhu vohliku fizkim ver vopacco kiriz fobo.”</h4></div>
+          
+              
+          <div class="info-sepa"></div>
+          <div class="like-share" style="margin-bottom: 8px;">
+            <span class="likeinfo">78 likes | 182 collects</span>
+            <div>
+              <ul class="actions">
+                <li><i class="fa fa-diamond collecticon"></i></li>
+                <li><i class="fa fa-share-alt"></i></li>
+                <li><i class="like-btn fa"></i></li>
+              </ul>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+      
+
+
+      <!-- <div class="change-page">
+        <ul>
+          <li data-tab-for="pageone" class="tab-selected tab-item top"><a  href="javascript:void(0)">1</a></li>
+          <li data-tab-for="pagetwo" class=" tab-item top"><a  href="javascript:void(0)">2</a></li>
+          <li><a href="">3</a></li>
+          <li><a href="">4</a></li>
+          <li><a href="">5</a></li>
+          <li><a href="">6</a></li>
+          <li><a href="">7</a></li>
+          <li><a href="">8</a></li>
+          <li><a href="">9</a></li>
+          <li><a href="">10</a></li>
+        </ul>
+      </div> -->
+
+
+
+    </div>
+  </main>
+  
+</body>
+</html>

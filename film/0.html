@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Picassonian - joftate koowu tavaf</title>
+  
+<link rel="stylesheet" href="/stylesheets/general.css" />
+<link rel="stylesheet" href="/stylesheets/navbar.css" />
+
+<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" >
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="/stylesheets/cards/film.css">
+  <link rel="stylesheet" href="/stylesheets/comments.css">
+  <link rel="stylesheet" href="/stylesheets/bigcomment.css">
+  <link rel="stylesheet" href="/stylesheets/actions.css">
+  <link rel="stylesheet" href="/stylesheets/film.css">
+  <link rel="stylesheet" href="/stylesheets/works.css">
+
+</head>
+<body>
+  <header>
+  <a href="/" class="logo">PICASSONIAN</a>
+  <nav class="categories">
+    <ul>
+      <li><a href="/discover.html">discover</a></li>
+      |
+      <li><a href="/discover/film.html">film</a></li>
+      |
+      <li><a href="/discover/music.html">music</a></li>
+      |
+      <li><a href="/discover/book.html">book</a></li>
+    </ul>
+  </nav>
+  <form id="search-form" action="/search" method="GET" class="search-container">
+    <div class="search">
+      <input id="search-input" type="text" name="q" placeholder="search..." />
+      <button class="submit-button fa fa-search"></button>
+    </div>
+    <!--<div id="search-advice" class="search-advice">
+      <section class="people">
+        <h2>
+          people/organizations
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/10.png">
+            </div>
+            <span class="info">Akira Kurosawa</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/avatars/11.png">
+            </div>
+            <span class="info">Kitano Takeshi</span>
+          </a>
+        </div>
+      </section>
+      <section class="film">
+        <h2>
+          films
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/4.png">
+            </div>
+            <span class="info">Akira</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/posters/7.png">
+            </div>
+            <span class="info">Hanabi</span>
+          </a>
+        </div>
+      </section>
+      <section class="music">
+        <h2>
+          music
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/1.png">
+            </div>
+            <span class="info">Rap God</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/albums/2.png">
+            </div>
+            <span class="info">Continued Silence</span>
+          </a>
+        </div>
+      </section>
+      <section class="book">
+        <h2>
+          books
+          <a class="more-link">more</a>
+        </h2>
+        <div class="content">
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/1.png">
+            </div>
+            <span class="info">The Three-Body Problem</span>
+          </a>
+          <a class="item">
+            <div class="image-container">
+              <img src="images/books/2.png">
+            </div>
+            <span class="info">The Dark Forest</span>
+          </a>
+        </div>
+      </section>
+    </div>-->
+  </form>
+  <script type="text/javascript">
+//<!--
+  $('#search-form').submit(function () {
+    if ($('#search-input').val().trim().length === 0) return false;
+  });
+
+  $('#search-input').on('change keyup paste click', function () {
+
+    if ($(this).val().trim().length > 0) {
+      $('#search-advice').show();
+    }
+    else {
+      $('#search-advice').hide();
+    }
+
+  });
+//-->
+  </script>
+  <div class="width-holder"></div>
+  <nav class="personal">
+    <ul>
+      <li><a href="/"><i class="fa fa-newspaper-o"></i> feed</a></li>
+      |
+      <li>
+        <a href="javascript:void(0);">
+          <i class="fa fa-bell-o"></i>notifs
+        </a>
+        <div class="sublist" style="padding: 6px;">
+          no notification yet
+        </div>
+      </li>
+      
+      |
+      <li><a href="/user/1.html"><i class="fa fa-user"></i> me</a></li>
+      |
+      <li class="settings">
+        <a>
+          <i class="fa fa-cog"></i>
+        </a>
+        <ul class="sublist">
+          <!-- <li><a href="">people</a></li>
+          <li><a href="">collection</a></li>
+          <li><a href="">critique & review</a></li>
+          <li><a href="">question</a></li>
+          <li><a href="">account settings</a></li>
+          <li><a href="">privacy settings</a></li>
+          <li><a href="">help</a></li> -->
+          <li><a href="/management.html">manage</a></li>
+          <li><a href="/login.html">logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="work-view content">
+      <div class="info">
+        <div class="film-card non-text">
+          <a href="/film/0.html"><img class="poster" src="/images/films/1.png" alt=""></a>
+          <div class="title"><a href="/film/0.html" class="non-text">joftate koowu tavaf</a></div>
+          <div class="detail">by 
+            <span>Cora Atkins</span>
+          </div>
+        </div>
+        <div class="detail">
+          
+          
+          <h1>joftate koowu tavaf</h1>
+          <h1>ニレの通りで夜</h1>
+          <ul class="fields">
+            <li><span class="field">director</span>
+            <span class="comma-list">
+              
+                <span>Cora Atkins</span>
+              
+                <a href='/user/5.html'>Myrtie Klein</a>
+              
+            </span>
+            </li>
+            
+            <li><span class="field">cast</span>
+            <span class="comma-list">
+              
+                <span>Gordon Carter</span>
+              
+                <span>Linnie Parker</span>
+              
+                <span>Emily Gonzales</span>
+              
+                ...
+            </span>
+            </li>
+           
+            <li><span class="field">country</span> Russia</li>
+            <li><span class="field">year</span> 1917</li>
+          </ul>
+          <p><!-- <a class="more-link">[more]</a> --></p>
+          
+          
+        </div>
+      </div>
+
+      <ul class="actions">
+        <li><i class="fa fa-diamond"></i></li>
+        <li><i class="fa fa-share-alt"></i></li>
+        <li><i class="like-btn fa checked"></i></li>
+      </ul>
+
+      <section class="description">
+        <h2 class="title">
+          description
+          <span class="author sub">
+            written by author 
+            <span>Cora Atkins</span>
+          </span>
+        </h2>
+
+        <p>
+          Fu be bojiib bamtanew nudi bu rakiw iwabivdom mo ed ta geati rokicok hi ledo kopli jen wasoju. Hej zoadevu subep ale kitko fivvimet kosvulla bawojfi omo obfeano wowhusel izvebe. Oze lehep johkebac fejhi todkokeh piet ilo rab ganel rihtevne hefada fesabis egbi. Awe bo he lufitzed edi focaj mud ibuki er tuzejhu kad jusom iho wezica. Abikinra ulmupasa vijum zav bic es motirih jozo vabah ipda famekloz girliv. Ni it toje fewzum mehi kedlel zilipin fuvumed vegfef fadaf wetkaag oggah eg zecap zavtipu zujsewfa.
+          <!-- <a class="more-link">[more]</a> -->
+        </p>
+      </section>
+
+      <section class="critique">
+        <div class="title-btn">
+          <h2 class="title">critique<span> &nbsp (23 pieces)</span></h2>
+        </div>
+        
+
+        <ul>
+          
+          <li>
+            <a class="author" href="/user/4.html">Etta Bowen:</a>
+            <div class="right">
+              <p class="content">Ja tilvog zeg lobuzooj hodejap apu go zapaca berwassu ivjeopi vo ize vazo..</p>
+              <div class="like-share">
+                <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+                <div>
+                  <ul class="actions">
+                    <li><i class="fa fa-share-alt"></i></li>
+                    <li><i class="like-btn fa "></i></li>
+                  </ul>
+                </div>
+              </div>     
+            </div>
+          </li>
+          
+          <li>
+            <a class="author" href="/user/6.html">Patrick Guerrero:</a>
+            <div class="right">
+              <p class="content">Jinsawe kolav cuf ewosuh fatdamo gicaspa we fumihpu beb baf feovuele vuugaog..</p>
+              <div class="like-share">
+                <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+                <div>
+                  <ul class="actions">
+                    <li><i class="fa fa-share-alt"></i></li>
+                    <li><i class="like-btn fa "></i></li>
+                  </ul>
+                </div>
+              </div>     
+            </div>
+          </li>
+          
+          <li>
+            <a class="author" href="/user/9.html">Johnny Allen:</a>
+            <div class="right">
+              <p class="content">Sij semes repeela epva zu ne imuipco cubna sowsur wumenbec sigsurro judodal hiz..</p>
+              <div class="like-share">
+                <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+                <div>
+                  <ul class="actions">
+                    <li><i class="fa fa-share-alt"></i></li>
+                    <li><i class="like-btn fa "></i></li>
+                  </ul>
+                </div>
+              </div>     
+            </div>
+          </li>
+          
+        </ul>
+
+        <h2 class="your-comment">
+          <a href="">Weichen Zhu:</a>
+          <input placeholder="write your comment here.">
+        </h2>
+
+
+        <div class="seeall">
+          <a class="more-link" href="/film/0/critique.html">[see all 23 pieces of critique]</a>
+        </div>
+      </section>
+      
+      
+      <section class="questions">
+        <div class="title-btn">
+          <h2 class="title">questions <span> &nbsp (4 questions)</span></h2>
+          <div class="add-btn"><a class="more-link" href=""><i class="fa fa-plus addicon"></i><div>ask a question</div></a></div>
+        </div>
+        
+        <div class="question">
+          <h3>   
+            <a href="/film/0/question/24.html" class="non-text">Ni voca minbobun lojalpoj mibize vahol zoune?</a> 
+            <button>follow</button>
+          </h3>
+          <p>
+            <a href="/user/10.html">Hannah Cummings</a>
+            <a href="/film/0/question/24.html" class="non-text">Dunse zaifwof vuulili ocre koj ruvet nezoito ah hipepa zuno sof juddige sowro doledef joge. Jah wicook mu ce mecot on tucowha fezbig fugme hoigo be dogato rassum jo lez. Putiskik ev uwfuuhu kowhecpe izatow tilekaf gezotur de zom ipeazpet ek bidila lahit lipsavnej za zewfew fe....</a>
+            <a class="more-link" href="/film/0/question/24.html">[7 more answers]</a>
+          </p>
+
+          <div class="like-share">
+            <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+            <div>
+              <ul class="actions">
+                <li><i class="fa fa-share-alt"></i></li>
+                <li><i class="like-btn fa "></i></li>
+              </ul>
+            </div>
+          </div>    
+        </div>
+        
+
+        
+      </section>
+      
+      <div class="seeall">
+        <a class="more-link" href="/film/0/questions.html">[see all 4 questions]</a>
+      </div>
+
+
+      
+
+      <section class="reviews">
+        <div class="title-btn">
+          <h2 class="title">reviews <span> &nbsp (2 reviews)</span></h2>
+          <div class="add-btn"><a class="more-link" href=""><i class="fa fa-plus addicon"></i><div>write a review</div></a></div>
+        </div>
+        
+        <div class="review">
+          <a href="/film/0/review/12.html" class="non-text"><h3>Jujbovi enwez ojokeob ket huhna reos ev muvas uzogi gec givarpo ka.</h3></a>
+          <p class="info">
+            <a href="/user/0.html">Adele Patterson </a>
+          </p>
+
+          <p><a href="/film/0/review/12.html" class="non-text">Gormeldi tup rov bev wos ful buv zagarda mac semuvvo luze helvo cihkanhop eppac gotmaf vig. Ge jiwvi felewem ah aki zefuob zofed ve zid pijrogfez zi re uku. Mambatahe si camzab mej ju rakafe aksoek iletaviw azjacni jot efzuw fuc misurku pazol ojiwuet zurzij fozukela....</a>  <!-- <a class="more-link">[more]</a> --></p>
+
+          <div class="like-share">
+            <span class= "likeinfo"> <a href="">Jasper Jones</a>, <a href="">Jenna Lee</a> and <a href="">other 12</a> like it</span>
+            <div>
+              <ul class="actions">
+                <li><i class="fa fa-share-alt"></i></li>
+                <li><i class="like-btn fa "></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+
+        
+      </section>
+
+     
+
+      <div class="seeall">
+        <a class="more-link" href="/film/0/reviews.html">[see all 2 reviews]</a>
+      </div>
+
+      <section class="works-list">
+        <h2>
+          recommendations
+        <!-- books by the same writer 
+          <span class="comma-list">
+          </span> -->
+        </h2>
+        <div class="works">
+          
+          <div>
+            <div class="film-card small non-text " >
+              <a href="/film/4.html"><img class="poster" src="/images/films/5.png" alt="" /></a>
+              <div class="title"><a href="/film/4.html" class="non-text">jowhawesi cah wacdac</a></div>
+              <div class="detail">by 
+                <span>Carolyn Gonzales</span>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div>
+            <div class="film-card small non-text " >
+              <a href="/film/5.html"><img class="poster" src="/images/films/6.png" alt="" /></a>
+              <div class="title"><a href="/film/5.html" class="non-text">boiku icowopoc etowo</a></div>
+              <div class="detail">by 
+                <span>Linnie Parker</span>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div>
+            <div class="film-card small non-text " >
+              <a href="/film/8.html"><img class="poster" src="/images/films/9.png" alt="" /></a>
+              <div class="title"><a href="/film/8.html" class="non-text">com gov gu</a></div>
+              <div class="detail">by 
+                <span>Violet Bates</span>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div>
+            <div class="film-card small non-text " >
+              <a href="/film/2.html"><img class="poster" src="/images/films/3.png" alt="" /></a>
+              <div class="title"><a href="/film/2.html" class="non-text">hacuj kommugba huwuga</a></div>
+              <div class="detail">by 
+                <span>Francisco Pratt</span>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div>
+            <div class="film-card small non-text " >
+              <a href="/film/1.html"><img class="poster" src="/images/films/2.png" alt="" /></a>
+              <div class="title"><a href="/film/1.html" class="non-text">hekatu umarivav zin</a></div>
+              <div class="detail">by 
+                <span>Brian Vasquez</span>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
